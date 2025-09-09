@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis &#8212; My sample book</title>
+    <title>9. Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling &#8212; My sample book</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook_ml/Week_2_Decision_Trees_Random_Forests_SVMs';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook_dl/ch9generative_uncertainty';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. Basic Machine Learning Algorithms for Classification Tasks" href="Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html" />
-    <link rel="prev" title="2.5. (Exercises) Statistical Forecasting" href="S1_3_Statistical_Forecasting.html" />
+    <link rel="next" title="9.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling" href="09_GenerativeAI.html" />
+    <link rel="prev" title="8.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="Chapter8_Ex1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,66 +208,66 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="W1_2.html">2.1. Classification and Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_ml/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S2_1_SVM.html">3.2. (Exercises) Support Vector Machines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S2_1_Decision_Trees_and_RF.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S2_3_Ensemble_Learning_Random_Forests.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S2_4_Wildfire_Risk_Italy.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_ml/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_1_SVM.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_1_Decision_Trees_and_RF.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_3_Ensemble_Learning_Random_Forests.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_4_Wildfire_Risk_Italy.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning (Clustering, Dimensionality Reduction) and Environmental Complexity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_ml/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning (Clustering, Dimensionality Reduction) and Environmental Complexity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_dl/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_dl/Week_6_Recurrent_NN.html">6. Recurrent Neural Networks and Hydrological Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/W6_RNN_Summary.html">6.1. Introduction to Recurrent Neural Networks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/Neural_Networks_for_Time_Series_Predictions.html">6.2. Neural Networks for Time Series Predictions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/S6_1_Composing_Music_With_RNNs_CNNs.html">6.3. (Exercise) Composing Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/S6_2_LSTM.html">6.4. (Exercise) Hydrological Modeling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">6. Recurrent Neural Networks and Hydrological Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="W6_RNN_Summary.html">6.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Neural_Networks_for_Time_Series_Predictions.html">6.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">6.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">6.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_dl/GNN_Knowledge.html">7. Graph Neural Networks and Interconnected Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/Graph_neural_networks.html">7.6. (Exercises) Graph neural networks with PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/LAM_Graphcast.html">7.7. (Exercise) Neural Weather Prediction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GNN_Knowledge.html">7. Graph Neural Networks and Interconnected Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Graph_neural_networks.html">7.6. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LAM_Graphcast.html">7.7. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_dl/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_dl/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/09_GenerativeAI.html">9.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/Week_9_Generative_modeling.html">9.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Generative Modeling and Uncertainty Quantification</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_GenerativeAI.html">9.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week_9_Generative_modeling.html">9.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_dl/HybridModeling_summary.html">10. Hybrid Modeling and Knowledge-Guided Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebook_dl/10_Hybird_Models.html">10.5. (Exercise) Introduction to Hybrid models</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HybridModeling_summary.html">10. Hybrid Modeling and Knowledge-Guided Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Hybird_Models.html">10.5. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -341,7 +341,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebook_ml/Week_2_Decision_Trees_Random_Forests_SVMs.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebook_dl/ch9generative_uncertainty.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +371,7 @@
       
       
       
-      <li><a href="../_sources/notebook_ml/Week_2_Decision_Trees_Random_Forests_SVMs.ipynb" target="_blank"
+      <li><a href="../_sources/notebook_dl/ch9generative_uncertainty.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -453,7 +453,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</h1>
+    <h1>Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -467,33 +467,61 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><a href="https://colab.research.google.com/github/freddy0218/2025_MLEES_book/blob/main/notebook_ml/Week_2_Decision_Trees_Random_Forests_SVMs.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="decision-trees-random-forests-support-vector-machines-and-environmental-risk-analysis">
-<h1><span class="section-number">3. </span>Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis<a class="headerlink" href="#decision-trees-random-forests-support-vector-machines-and-environmental-risk-analysis" title="Link to this heading">#</a></h1>
-<p>In this chapter, the learning objectives are:</p>
+  <p><a href="https://colab.research.google.com/github/freddy0218/2025_MLEES_book/blob/main/notebook_dl/ch9generative_uncertainty.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="generative-modeling-from-uncertainty-quantification-to-stochastic-downscaling">
+<h1><span class="section-number">9. </span>Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling<a class="headerlink" href="#generative-modeling-from-uncertainty-quantification-to-stochastic-downscaling" title="Link to this heading">#</a></h1>
+<p><strong>Learning Objectives</strong>:</p>
 <ol class="arabic simple">
-<li><p>Training and benchmarking different types of support vector machines for classification and regression purposes,</p></li>
-<li><p>Training, fine-tuning, and benchmarking decision trees and random forests for classification purposes,</p></li>
-<li><p>Applying these classification algorithms to map wildfire risk in Italy using historical data of wildfire occurence.</p></li>
+<li><p>Define generative modeling</p></li>
+<li><p>Know different ways of adding uncertainty to ML models</p></li>
+<li><p>Understand how to evaluate such uncertainty estimates</p></li>
+<li><p>Know three state-of-the-art generative models</p></li>
+<li><p>Apprehend applications of latent data representations</p></li>
 </ol>
-<p>Today’s tutorial:</p>
+<p><strong>Generative Modeling</strong></p>
+<blockquote>
+<div><p>Generative modeling refers to a class of models within artificial intelligence that focuses on the creation of new data samples that resemble a given dataset. Instead of predictive tasks, like classification or regression, generative models aim to understand and mimic the underlying structure of the data to generate entirely new samples.</p>
+</div></blockquote>
+<blockquote>
+<div><p>These models learn the probability distribution of the input data, capturing the patterns and relationships among the data points. They can then generate new instances that, ideally, exhibit similar characteristics to the original dataset.</p>
+</div></blockquote>
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>Add Uncertainty to Machine Learning Models</strong></p>
+<p>Incorporating uncertainty into machine learning models is pivotal, especially in scenarios where decisions rely on understanding the confidence or reliability of predictions. Several methods exist to inject uncertainty into models:</p>
 <ol class="arabic simple">
-<li><p>Adapts Géron et al.’s Jupyter notebook exercises for chapters <a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/05_support_vector_machines.ipynb">5</a>, <a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/06_decision_trees.ipynb">6</a>, and <a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/07_ensemble_learning_and_random_forests.ipynb">7</a> <a class="reference external" href="https://github.com/ageron/handson-ml2/blob/master/LICENSE">(License)</a> of his book <a class="reference external" href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/">“Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition”</a>,</p></li>
-<li><p>Adapts two articles on wildfire susceptibility mapping from <a class="reference external" href="https://www.mdpi.com/2076-3263/10/3/105">Tonini et al.</a> and <a class="reference external" href="https://www.mdpi.com/2571-6255/5/1/30">Trucchia et al.</a>, and Python scripts from <a class="reference external" href="https://www.linkedin.com/in/giorgio-meschi-86216b180/">Giorgio Meschi</a>.</p></li>
+<li><p><strong>Ensemble Prediction</strong>: Ensemble methods, like bagging or boosting, involve training multiple models on different subsets of data or using diverse algorithms. The variance among predictions across these models reflects uncertainty. Aggregating these predictions, such as through averaging or weighted averaging, provides more robust estimates.</p></li>
+<li><p><strong>Multi-Model Approaches</strong>: Combining predictions from diverse models, possibly stemming from different architectures or learning algorithms, can provide a broader perspective on uncertainty. Integrating outputs from these models allows capturing various sources of uncertainty present in the data.</p></li>
+<li><p><strong>Parametric Distributional Prediction</strong>: Certain models, like Bayesian Neural Networks or Gaussian Processes, parameterize probability distributions over predictions. These models learn the uncertainty in terms of distribution parameters, enabling the estimation of full predictive distributions rather than point estimates.</p></li>
+<li><p><strong>Non-Parametric Distributional Prediction</strong>: Methods like Kernel Density Estimation or Histogram-based approaches directly estimate the underlying probability distribution of the predictions. These techniques offer non-parametric ways to model uncertainty without assuming specific functional forms for distributions.</p></li>
+<li><p><strong>Monte Carlo Dropout (MC Dropout)</strong>: Applying dropout during both training and testing in neural networks, and then performing multiple forward passes during testing, allows the model to approximate Bayesian inference. The variance in predictions across these passes provides estimates of uncertainty.</p></li>
+<li><p><strong>Bayesian NN (BNN)</strong>: Treating neural network weight as probability distributions. It uses Bayesian inference to learn the posterior distribution of weights. Uncertainty quantification is robust but is computationally expensive.</p></li>
 </ol>
-<p>If you are struggling with some of the exercises, do not hesitate to:</p>
-<ul class="simple">
-<li><p>Use a direct Internet search, or <a class="reference external" href="https://stackoverflow.com/">stackoverflow</a></p></li>
-<li><p>Ask your neighbor(s), the teacher, or the TA for help</p></li>
-<li><p>Debug your program, e.g. by following <a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/11-debugging/index.html">this tutorial</a></p></li>
-<li><p>Use assertions, e.g. by following <a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/10-defensive/index.html">this tutorial</a></p></li>
-</ul>
-<p>If you’re done early, consider:</p>
-<ul class="simple">
-<li><p>Trying out the notebook’s bonus exercises</p></li>
-<li><p>Giving feedback on how to improve this notebook (typos, hints, exercises that may be improved/removed/added, etc.) by messaging the teacher and TA(s) on Moodle</p></li>
-<li><p>Working on your final project for this course.</p></li>
-</ul>
+<p><img alt="image" src="https://journals.ametsoc.org/view/journals/aies/2/2/full-AIES-D-22-0061.1-f4.jpg" /></p>
+<p>Fig 1. Summary schematics and key ideas for non-Bayesian uncertainty quantification approaches (Haynes et al. 2023)</p>
+<p>By adding uncertainty, models become more robust, reliable, and adaptable to real-world complexities.</p>
+<p><img alt="image" src="https://journals.ametsoc.org/view/journals/aies/2/2/full-AIES-D-22-0061.1-f1.jpg" /></p>
+<p>Fig 2. Information flow for an machine learning model with uncertainty quantification (Haynes et al. 2023)</p>
+<p><strong>Evaluate Uncertainty</strong>
+Evaluating uncertainty estimates in machine learning models involves various methods and metrics, such as:</p>
+<ol class="arabic simple">
+<li><p><strong>Spread-Skill Plot</strong>: This metric assesses the relationship between uncertainty and model performance. It plots the spread of predicted uncertainties against the model’s accuracy. A good model demonstrates higher uncertainty for incorrectly predicted instances.
+For example, we could use Spread-Skill Plot, with a model wich predicts rainfall, to see if uncertainty is igher on days with poor prediction accuracy. This would confirm the model’s uncertainty aligns well with prediction errors.</p></li>
+<li><p><strong>Continuous Ranked Probability Score (CRPS)</strong>: Measures the discrepancy between predicted and observed cumulative distribution functions. Lower CRPS values indicate better calibration and accuracy of uncertainty estimates.
+For example, CRPS could be useful for predicting daily electricity demand: a low CRPS indicates accurate uncertainty estimates, which could allow better resource planning. A high CRPS would suggest the need for improved calibration.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Notable Genetative Models</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Autoencoders</strong>: Neural networks designed to learn a compressed representation of the input data, which can then be used to generate similar data.</p></li>
+<li><p><strong>Generative Adversarial Networks (GANs)</strong>: Comprising two networks—a generator and a discriminator—that compete against each other. The generator creates synthetic samples, and the discriminator tries to distinguish between real and generated data. Through adversarial training, the generator improves its ability to produce more realistic samples.</p></li>
+<li><p><strong>Variational Autoencoders (VAEs)</strong>: Another type of autoencoder that is trained to generate new data points by learning the underlying probability distribution of the data.</p></li>
+<li><p><strong>Probabilistic Graphical Models (PGMs)</strong>: A framework for modeling probability distributions using graphs, incorporating nodes to represent random variables and edges to signify dependencies between variables.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Latent data representations</strong>
+Latent data representations, existing on a latent manifold, are condensed, abstract encodings extracted from raw data through methods like autoencoders, VAEs, or GANs. These representations capture essential features while reducing dimensionality, residing within a structured latent space.</p>
+<p>In semi-supervised learning, latent manifolds within latent data representations may capture the underlying structure or the distribution of the data, to improve the model’s performance when only a limited portion of the data is labeled. For example, models may use unlabeled data that lie close to the clusters or structures within the latent manifold to generalize better, thus learning from both labeled and unlabeled data points. The structure of the latent manifold helps in defining decision boundaries, assigning labels to unlabeled data points. The smoothness and continuity of the latent space assist in guiding the model’s predictions, allowing for more accurate classifications even with limited labeled data.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -511,7 +539,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebook_ml"
+            path: "./notebook_dl"
         },
         predefinedOutput: true
     }
@@ -529,20 +557,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S1_3_Statistical_Forecasting.html"
+       href="Chapter8_Ex1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>(Exercises) Statistical Forecasting</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
       </div>
     </a>
     <a class="right-next"
-       href="Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html"
+       href="09_GenerativeAI.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.1. </span>Basic Machine Learning Algorithms for Classification Tasks</p>
+        <p class="prev-next-title"><span class="section-number">9.1. </span>(Exercise) Introduction to Uncertainty Quantification and Generative Modeling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

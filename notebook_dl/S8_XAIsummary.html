@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.2. Neural Networks for Time Series Predictions &#8212; My sample book</title>
+    <title>8.1. Explainable AI (XAI) &#8212; My sample book</title>
   
   
   
@@ -57,13 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook_dl/Neural_Networks_for_Time_Series_Predictions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook_dl/S8_XAIsummary';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.3. Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales" href="S6_1_Composing_Music_With_RNNs_CNNs.html" />
-    <link rel="prev" title="6.1. Introduction to Recurrent Neural Networks (RNN)" href="W6_RNN_Summary.html" />
+    <link rel="next" title="8.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="Chapter8_Ex1.html" />
+    <link rel="prev" title="8. Explainable Artifical Intelligence (XAI):" href="W8_XAI.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -234,16 +232,16 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">6. Recurrent Neural Networks and Hydrological Modeling</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">6. Recurrent Neural Networks and Hydrological Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="W6_RNN_Summary.html">6.1. Introduction to Recurrent Neural Networks</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Neural_Networks_for_Time_Series_Predictions.html">6.2. Neural Networks for Time Series Predictions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">6.3. (Exercise) Composing Music</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">6.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
@@ -255,9 +253,9 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </details></li>
@@ -341,7 +339,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebook_dl/Neural_Networks_for_Time_Series_Predictions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebook_dl/S8_XAIsummary.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +369,7 @@
       
       
       
-      <li><a href="../_sources/notebook_dl/Neural_Networks_for_Time_Series_Predictions.ipynb" target="_blank"
+      <li><a href="../_sources/notebook_dl/S8_XAIsummary.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -455,7 +453,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Neural Networks for Time Series Predictions</h1>
+    <h1>Explainable AI (XAI)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -465,8 +463,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">6.2.1. Processing Sequences using RNNs and CNNs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">6.2.2. Transformers and Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">8.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">8.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">8.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">8.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">8.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -478,237 +480,290 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="neural-networks-for-time-series-predictions">
-<h1><span class="section-number">6.2. </span>Neural Networks for Time Series Predictions<a class="headerlink" href="#neural-networks-for-time-series-predictions" title="Link to this heading">#</a></h1>
-<p>This week, we will introduce ML approaches for time series data. Time series data documents the temporal changes of variables and is very common when dealing with instrumental data. This chapter will introduce the use of Recurrent Neural Networks and 1D Convolutional Neural Networks to predict future changes in variables with time.</p>
-<p>Learning Objectives for this chapter include:</p>
+  <p><a href="https://colab.research.google.com/github/freddy0218/2025_MLEES_book/blob/main/notebook_dl/S8_XAIsummary.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="explainable-ai-xai">
+<h1><span class="section-number">8.1. </span>Explainable AI (XAI)<a class="headerlink" href="#explainable-ai-xai" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">8.1.1. </span>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Understand the importance of XAI</p></li>
+<li><p>Distinguish local from global explanation methods</p></li>
+<li><p>Distinguish model-agnostic from model-specific methods</p></li>
+<li><p>Know how to implement permutation feature importance and partial dependence plots</p></li>
+<li><p>Apprehend explanation methods for neural networks.</p></li>
+</ol>
+<p>This chapter concerns the steps we can take to make ML model more interpretable or explainable, and introduce some tools we can use to extract physical understanding from data.</p>
+<p>Broadly speaking, a ML model that is interpretable means that human decision makers understand the cause of a decision and can anticipate the model’s predictions. The simplest interpretable model is a simple multiple linear regression (MLR) model.</p>
+</section>
+<section id="when-do-we-need-ml-models-to-be-explainable">
+<h2><span class="section-number">8.1.2. </span>1. <strong>When do we need ML models to be explainable?</strong><a class="headerlink" href="#when-do-we-need-ml-models-to-be-explainable" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><blockquote>
+<div><p>‘Interpretability is the degree to which a human can understand the cause of a decision’ (Miller, 2017)</p>
+</div></blockquote>
+</div></blockquote>
+<p>The first question we need to ask ourselves is “do we really need a model to the interpretable?” This question stems from the <strong>trade-offs</strong> between predictive accuracy and model interpretability. A MLR model is often less accurate than complex neural networks for complex problems. Neural networks are too complex to be directly interpretable, however.</p>
+<blockquote>
+<div><p>There is a trade-off between the interpretability of a model and its predictive skill. This trade-off can be visualized with an transparency-accuracy plot (Figure 3 in Wang and Lin 2021)</p>
+</div></blockquote>
+<p><img alt="Pareto_interpretable.jpg" src="notebook_dl/Figures/Pareto_interpretable.jpg" /></p>
+<p>As shown in the above figure, choosing the <em>optimal</em> model depends largely on how transparent you want your model to be (desired transparency), and how large a drop in model skills are you comfortable with (tolerance accuracy loss).</p>
+<p><strong>Critical decision-making</strong>: The first scenario you would want a model to be interpretable is in the context of high-stakes cases. Medical settings can be one situation where the extra transparency in your models would be very helpful. Can you think of one example where this transparency is not needed?</p>
+<p><strong>Human Understanding</strong>: The basic role of a science pratitioner is to discover new knowledge from observations. By analyzing how machine learning models make predictions, we may get some new understanding on, e.g., what differentiates premium wines to cheap ones? It is also possible to use tools to leverage interpretability to extract knowledge embedded in machine learning models (<strong>Extract Additional Insights</strong>)</p>
+<p><strong>Increase trust:</strong> AI/ML techniques are relatively new to a lot of different fields, such as weather forecasting. If we can explain how the ML models work in simple terms, forecasters may trust the AL predictions more.</p>
+<p><strong>Debugging ML models:</strong> It is difficult to explain how a black box model makes its predictions. This can be problematic because the model may be learning the wrong things while having a good skill score. A good example often mentioned in the literature is image classification, where classification models label the images correctly only because of a common watermark.</p>
+<p>Here are the possible benefits of using inherently interpretable ML model rather than black box models for your research task [Figure taken from Figure 4 in Du et al. (2019)]</p>
+<p><img alt="interpretable_progress.jpg" src="notebook_dl/Figures/interpretable_progress.jpg" /></p>
+<p>If you are not using an intrinsically intepretable model, the normal workflow of explaining a ML model would be to train the model first, and use ad-hoc methods to explain the trained model.</p>
+</section>
+<section id="distinguishing-local-vs-global-explanation-methods">
+<h2><span class="section-number">8.1.3. </span>2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong><a class="headerlink" href="#distinguishing-local-vs-global-explanation-methods" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Define a recurrent neural network</p></li>
-<li><p>Distinguish recurrent from convolutional neural networks</p></li>
-<li><p>Discuss the forecasting of environmental time series</p></li>
-<li><p>Define natural language processing</p></li>
-<li><p>Know at least three algorithms to process time-series</p></li>
+<li><p><strong>Local Explanations:</strong></p>
+<ul>
+<li><p>Focus on explaining individual predictions or instances.</p></li>
+<li><p>Better accuracy for specific predictions but might not represent the overall model behavior.</p></li>
+<li><p>Examples: Counterfactual explanations, instance-based methods.</p></li>
 </ul>
-<section id="processing-sequences-using-rnns-and-cnns">
-<h2><span class="section-number">6.2.1. </span>Processing Sequences using RNNs and CNNs<a class="headerlink" href="#processing-sequences-using-rnns-and-cnns" title="Link to this heading">#</a></h2>
-<p><img alt="RNN_schematic.jpg" src="notebook_dl/Figures/RNN_schematic.jpg" /></p>
-<p><strong>Caption</strong> LSTM Model for time series prediction for environmental sciences</p>
-<p><strong>Source</strong> Figure 1 from Mishra et al. (2020; <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2352484719308546#fig1">link to paper</a>)</p>
-<p><strong>Key concepts of RNNs:</strong></p>
-<ul class="simple">
-<li><p><strong>Unrolling the network through time:</strong> This is a way of representing an RNN as a feedforward neural network, where each time step is represented by a separate layer of neurons.</p></li>
-<li><p><strong>Backpropagation through time (BPTT):</strong> This is a way of training RNNs that takes into account the fact that the outputs of the network at a one-time step depend on the outputs of the network at previous time steps.</p></li>
-<li><p><strong>Vanishing and exploding gradients:</strong> These are two problems that can occur when training RNNs, and they can make it difficult for the network to learn long-term dependencies.</p></li>
-<li><p><strong>Long short-term memory (LSTM) and gated recurrent units (GRUs):</strong> These are two types of RNN cells that are designed to address the vanishing and exploding gradients problems.</p></li>
+</li>
+<li><p><strong>Global Explanations:</strong></p>
+<ul>
+<li><p>Aimed at understanding the overall model behavior.</p></li>
+<li><p>Highlights feature importance and interactions across the entire dataset.</p></li>
+<li><p>Examples: Feature importance rankings, aggregated insights.</p></li>
 </ul>
-<p><strong>Take home messages</strong></p>
-<ul class="simple">
-<li><p>Time series forecasting in environmental sciences can be framed in different ways: <em>Sequence-to-sequence</em>, <em>sequence-to-vector</em>, <em>vector-to-sequence</em></p></li>
-<li><p>The <em>encoder-decoder</em> structure is essentially a sequence-to-vector model followed by a vector-to-sequence model.</p></li>
-<li><p>A recurrent node unrolling through time =&gt; the most straightforward RNN architecture</p></li>
-<li><p>Stacking multiple layers of recurrent nodes gives you <em>deep RNNs</em>, which may have better skills than simple RNNs</p></li>
-<li><p>Vanilla RNNs may encounter problems when dealing with long-time series data, such as <em>unstable gradients</em> and <em>short-term memory</em> problems.</p></li>
-<li><p>Using the <em>Long Short-Term Memory (LSTM)</em> layers or <em>Gated Recurrent Units (GRU)</em> layers in your architecture helps to alleviate the above problems.</p></li>
-<li><p>These solutions split the available information into long-term and short-term components and learn which part of long-term information to include in the prediction during training.</p></li>
-<li><p>Time series predictions can also be produced with 1D convolutional networks.</p></li>
+</li>
 </ul>
-<p><strong>Inputs and Outputs Configurations for RNNs:</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<tr class="row-odd"><th class="head"><p>Scope of Intepretability</p></th>
 <th class="head text-center"><p>Discussion</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Sequence-to-sequence networks</p></td>
-<td class="text-center"><p>Predict outputs for each input in a sequence, useful for tasks like predicting stock prices</p></td>
+<tr class="row-even"><td><p>Algorithm Transparency</p></td>
+<td class="text-center"><p>Understanding the algorithm and how it works</p></td>
 </tr>
-<tr class="row-odd"><td><p>Sequence-to-vector networks</p></td>
-<td class="text-center"><p>Output a single result for a sequence, suitable for tasks like sentiment analysis</p></td>
+<tr class="row-odd"><td><p>Global, Holistic Model interpretability</p></td>
+<td class="text-center"><p>Understanding on a general level how the model works</p></td>
 </tr>
-<tr class="row-even"><td><p>Vector-to-sequence networks</p></td>
-<td class="text-center"><p>generate a sequence based on a constant input, such as generating captions for an image</p></td>
+<tr class="row-even"><td><p>Global Model Interpretability</p></td>
+<td class="text-center"><p>Understanding parts of the model and how it affects the results</p></td>
 </tr>
-<tr class="row-odd"><td><p>Encoder–Decoder networks</p></td>
-<td class="text-center"><p>sequence-to-vector and vector-to-sequence components, useful for translation tasks</p></td>
+<tr class="row-odd"><td><p>Local Interpretability</p></td>
+<td class="text-center"><p>Understanding and explaining the output from the input variables and how it behaved to reach that point</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Memory cells:</strong></p>
-<ul class="simple">
-<li><p>A part of a neural network that preserves some state across time steps is called a memory cell. It is called “memory cells” because past information impacts the neuron outputs.</p></li>
-<li><p>A single recurrent neuron, or a layer of recurrent neurons, is a very basic cell, capable of learning only short patterns, typically aroundd 10 steps long.</p></li>
-<li><p>The LSTM and GRU architecture contain more complex cells with the ability to learn longer patterns.</p></li>
-</ul>
-<blockquote>
-<div><p>Generally, a cell’s state at time step “t” is denoted as <span class="math notranslate nohighlight">\(h(t)\)</span> and is a function of inputs at
-that step and its state at the previous step: <span class="math notranslate nohighlight">\(h(t) = f(h(t–1), x(t))\)</span>. The output at time step “t,”
-denoted as <span class="math notranslate nohighlight">\(y(t)\)</span>, depends on the previous state and current inputs.</p>
-</div></blockquote>
-<p>Here we show an schematic diagram of a simple RNN memory cell and a complex cell in a LSTM model (Figure 1 in Rassem et al. 2017). In a simple RNN cell, cell output at a previous time step is stored and added to the input features list, which is then used for predictions.</p>
-<p><img alt="RNN_LSTM_cells.png" src="notebook_dl/Figures/RNN_LSTM_cells.png" /></p>
-<p><strong>How to train RNNs</strong></p>
-<ul class="simple">
-<li><p>Backpropagation through time (BPTT): Unroll the RNN through time, creating a temporal
-sequence, and then apply regular backpropagation.</p></li>
-<li><p>The gradients of the cost function are propagated backward through the
-unrolled network, and the model parameters are updated using these gradients.</p></li>
-<li><p>The gradients flow backward through all the outputs used by the cost function, not solely through the final output.</p></li>
-</ul>
-<p><strong>Baseline metrics:</strong></p>
-<ul class="simple">
-<li><p>Naive forecasting (predicting the last value in each series)</p></li>
-<li><p>Fully connected neural network</p></li>
-</ul>
-<p><strong>Forecasting Several Time Steps Ahead:</strong></p>
-<p>Two approaches:</p>
-<ul class="simple">
-<li><p>Making sequential predictions one step at a time.</p></li>
-<li><p>Predicting all future values at once.</p></li>
-</ul>
-<blockquote>
-<div><p>LSTM cells: This specialized cell improves upon the RNN cell in solving the short-term memory problem of that simple cell. The LSTM cell has gates (forget, input, and output) that control information flow using logistic activation.</p>
-<blockquote>
-<div><p>The Forget gate <span class="math notranslate nohighlight">\(f(t)\)</span> removes unnecessary information from the long-term state. Input gate <span class="math notranslate nohighlight">\(i(t)\)</span> controls which parts of the new information <span class="math notranslate nohighlight">\(g(t)\)</span> should be added to the long-term state. Output gate <span class="math notranslate nohighlight">\(o(t)\)</span> controls which parts of the long-term state should be read and output.</p>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><p>The main layer outputs <span class="math notranslate nohighlight">\(g(t)\)</span>, analyzing current inputs and the previous short-term state.
-Three gate controllers (forget gate f(t), input gate i(t), and output gate o(t)) control information flow using logistic activation.</p>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><p>The LSTM cell excels at recognizing, storing, preserving, and extracting
-important inputs over time, making it highly successful in capturing long-term
-patterns in various data types such as time series, texts, and audio recordings.</p>
-</div></blockquote>
-</div></blockquote>
-<p><img alt="LSTMcell.jpg" src="notebook_dl/Figures/LSTMcell.jpg" /></p>
-<blockquote>
-<div><p>Gated Recurrent Unit (GRU) Cells:
-The GRU cell is a simplified version of the LSTM cell but performs similarly well.</p>
-<blockquote>
-<div><p>Key simplifications include merging both state vectors into a single vector <span class="math notranslate nohighlight">\(h(t)\)</span>, a single gate controller <span class="math notranslate nohighlight">\(z(t)\)</span> governing both the forget and input gates, and the absence of an output gate.</p>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><p>A new gate controller <span class="math notranslate nohighlight">\(r(t)\)</span> determines which part of the previous
-state is revealed to the main layer <span class="math notranslate nohighlight">\(g(t)\)</span>.</p>
-</div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><p>Keras provides a keras.layers.GRU layer, making its implementation straightforward by replacing SimpleRNN or LSTM with GRU.</p>
-</div></blockquote>
-</div></blockquote>
-<p><img alt="GRUcell.jpg" src="notebook_dl/Figures/GRUcell.jpg" /></p>
-<p>While LSTM and GRU cells contribute significantly to the success of RNNs, they still face challenges in learning long-term patterns in sequences of 100 or more time steps, such as audio samples or long sentences. One approach to address this limitation is to <em>shorten input sequences</em>, potentially by using 1D convolutional layers.</p>
-<p><strong>Environmental Sciences Applications</strong></p>
-<p>The neural network architectures introduced in this chapter can be useful when your problem involves predicting the time evolution of different physical variables. One example is using LSTM to predict river streamflow in the western US (e.g., Hunt et al. 2022).</p>
-<p>Assuming you have a large gridded dataset with time evolution of environmental properties (e.g., topography, vegetation, weather conditions, rainfall predictions), and your research task is to evaluate the likelihood of flooding in the next 12 hours, you can use RNN or similar models to predict the changes in water levels at particular measuring sites. These models make predictions using environmental context from the gridded data and water level predictions at the previous time step.</p>
-<p>Reference:
-Hunt, K. M. R., Matthews, G. R., Pappenberger, F., &amp; Prudhomme, C. (2022). Using a long short-term memory (LSTM) neural network to boost river streamflow forecasts over the western united states. Hydrology and Earth System Sciences, 26(21), 5449-5472.
-(<a class="reference external" href="https://hess.copernicus.org/articles/26/5449/2022/hess-26-5449-2022.html">Link to Paper</a>)</p>
-<p><strong>Exercise: Composing Music with RNNs / 1D CNNs</strong></p>
-<p>The first exercise of this chapter is to use RNNs and 1D CNNs to create new Chorales in the style of Bach. Can you tune the model hyperparameters to create a track that is listenable?</p>
-<ol class="arabic simple">
-<li><p>Load and preprocess a dataset storing multiple existing Bach chorales</p></li>
-<li><p>Train a small WaveNet to create new chorale in time series format</p></li>
-<li><p>Evaluate model skills</p></li>
-<li><p>Repeat the prediction task with RNNs</p></li>
-</ol>
 </section>
-<section id="transformers-and-attention">
-<h2><span class="section-number">6.2.2. </span>Transformers and Attention<a class="headerlink" href="#transformers-and-attention" title="Link to this heading">#</a></h2>
-<p><strong>Key points</strong></p>
+<section id="model-agnostic-vs-model-specific-methods">
+<h2><span class="section-number">8.1.4. </span>3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong><a class="headerlink" href="#model-agnostic-vs-model-specific-methods" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The main disavantages of the RNNs introduced in the previous section is that RNNs have limited capacities to capture long-range dependencies and can be hard to interpret.</p></li>
-<li><p>Attention mechanism is a useful technique to improve upon the traditional RNNs.</p></li>
-<li><p>The attention layer consists of a encoding part, a decoding part, and a small neural network (alignment model) to find the similarity between different subsections of inputs and outputs.</p></li>
-<li><p>The similarity measurements in the model hidden state are interpretable and reveal information on which part of the inputs influences the model prediction the most.</p></li>
-<li><p>Attention architecture can be used to process visual images. Visual attention informs which part of a picture influences model predictions.</p></li>
-<li><p>The main advantages of incoporating attention mechanism are (a) ability to capture long-range dependencies, (b) interpretable, and (c) potentially improve model prediction skills.</p></li>
-<li><p>The attention layer is the vital part of a novel architecture proved to be useful for time series tasks - Transformers.</p></li>
-<li><p>Novel aspects of transformers include positional encoding and multi-head attention.</p></li>
-<li><p>Using Natural Language Processing tasks as an example, multihead attention trains different iterations of self-attention that captures different long-range dependencies within a sentence.</p></li>
-<li><p>The multihead attention module will then combine different similarity matrices and provide the final attention output from 0 to 1.</p></li>
+<li><p><strong>Model-Agnostic Methods:</strong></p>
+<ul>
+<li><p>Applicable to various machine learning models.</p></li>
+<li><p>Post hoc techniques that analyze models after training.</p></li>
+<li><p>Examples: Permutation feature importance, SHAP (SHapley Additive exPlanations).</p></li>
 </ul>
-<p><strong>Attention Mechanism</strong></p>
+</li>
+<li><p><strong>Model-Specific Methods:</strong></p>
+<ul>
+<li><p>Tailored to particular model architectures or types.</p></li>
+<li><p>Interpretation based on specific model internals or structures.</p></li>
+<li><p>Examples: Interpreting weights in linear models, decision tree visualization.</p></li>
+</ul>
+</li>
+</ul>
+<p>These AI explanation methods can be evaluated with the following criteria:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criteria</p></th>
+<th class="head text-center"><p>Discussion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Expressive power</p></td>
+<td class="text-center"><p>The structure/language that the explanation method can give</p></td>
+</tr>
+<tr class="row-odd"><td><p>Translucency</p></td>
+<td class="text-center"><p>How much it requires to look into the machine learning model</p></td>
+</tr>
+<tr class="row-even"><td><p>Algorithmic Complexity</p></td>
+<td class="text-center"><p>Computational complexity of the method</p></td>
+</tr>
+<tr class="row-odd"><td><p>Portability</p></td>
+<td class="text-center"><p>How many machine learning models the method can be used for</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Properties of the explanations themselves: accurate, consistent, faithful, stable, understandable, confidence, degree of representation, and importance of features, and how outliers or “novel” instances are evaluated.</p>
+</section>
+<section id="implementing-permutation-feature-importance-and-partial-dependence-plots">
+<h2><span class="section-number">8.1.5. </span>4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong><a class="headerlink" href="#implementing-permutation-feature-importance-and-partial-dependence-plots" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Allows the decoder to focus on relevant words from the
-encoder at each time step.</p></li>
-<li><p>Mitigates the short-term memory limitations of traditional RNNs especially for long sentences.</p></li>
-<li><p>All encoder outputs are sent to the decoder and at each time step, the
-decoder’s memory cell computes a weighted sum of these outputs determining the
-focus on specific words.</p></li>
-<li><p>These weights containing information of what previous words to focus on are generated by an alignment model that is a small neural network trained parallel to the Encoder-Decoder model.</p></li>
+<li><p><strong>Partial Dependence Plots:</strong></p>
+<ul>
+<li><p>Visualizing the marginal effect of a feature on the predicted outcome.</p></li>
+<li><p>To create these plots, we would first decide an input feature that we are interested in.</p></li>
+<li><p>Summarizes the model predictions for different parts of the distribution of the interested input feature.</p></li>
+<li><p>Put the statistical summary of predictions for different input feature values to a plot.</p></li>
+<li><p>Illustrates how changes in a feature impact model predictions.</p></li>
+<li><p>It is useful for regression tasks and classification tasks where the ML model outputs probabilities.</p></li>
+<li><p>Useful for understanding complex feature interactions.</p></li>
 </ul>
-<p>There are two main types of attention:</p>
-<ol class="arabic simple">
-<li><p>Bahdanau attention (concatenative attention): Combines encoder output with
-the decoder’s previous hidden state.</p></li>
-<li><p>Luong attention (multiplicative attention): Computes the dot product of
-encoder outputs and the decoder’s hidden state. The weights derived from
-this dot product are obtained through a softmax layer.</p></li>
-</ol>
-<p>It has been demonstrated that dot product variants outperformed concatenative attention.</p>
+</li>
+<li><p><strong>PDP-based Feature Importance:</strong></p>
+<ul>
+<li><p>The flatter a PDP is, the lesser the feature is important as opposed to having a PDP which varies a lot.</p></li>
+<li><p>Possible to combine the information in a PDP plot into a single numerical value.</p></li>
+<li><p>The numerical value shows how each PDP curve deviates from the average curve for all features.</p></li>
+<li><p>One disadvantage is that PDP-based feature importance ignores feature interactions. Only features that are directly impactful are important in this analysis.</p></li>
+<li><p>Gives only the main effect of the feature and ignores possible feature interactions. Moreover, PDP is only defined by the unique feature value.</p></li>
+</ul>
+</li>
+<li><p><strong>Advantages of PDPs:</strong></p>
+<ul>
+<li><p>Intuitive</p></li>
+<li><p>Clear interpretation</p></li>
+<li><p>A causal interpretation</p></li>
+</ul>
+</li>
+<li><p><strong>Disadvantages of PDPs:</strong></p>
+<ul>
+<li><p>Assumption of Independence</p></li>
+<li><p>Correlated feature complicates the interpretation</p></li>
+<li><p>Only shows 2D plots (many figures for a model with a lot of input features)</p></li>
+<li><p>As PDP illustrates the average marginal effect, it is possible that the heterogeneous effects might stay hidden. To know these effects, the individual conditional expectation curves can be plotted instead of aggregated line.</p></li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<div><p>Models originally developed for language tasks has resulted in breakthroughs in environmental sciences studies. These models can be adapted to environmental sciences because the goal and data structure of time series prediction tasks are very similar to human languages.</p>
+<div><p>Here is an example of using PDPs to understand how a machine learning model predicting the water level at a reservoir works [Figure 3 in Obringer and Nateghi (2018)]</p>
 </div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><p>Here we show a comparison of different ML model architectures in predicting water quality (Yang et al. 2021). Notice that adding an attention layer to the same background moddel architecture yields substantial reduction in the model error (compare the LSTM and LSTM-Attention results)</p>
-</div></blockquote>
-</div></blockquote>
-<p><img alt="LSTM_attention.jpg" src="notebook_dl/Figures/LSTM_attention.jpg" /></p>
-<p><strong>Transformers</strong></p>
+<p><img alt="streamflow_pdp1.jpg" src="notebook_dl/Figures/streamflow_pdp1.jpg" /></p>
 <ul class="simple">
-<li><p>Revolutionized neural machine translation (NMT) without the need of recurrent or convolutional layers for translation tasks</p></li>
-<li><p>It uses only attention mechanisms, yet achieved state-of-the-art
-performance in translation tasks and exhibited faster training and enhanced parallelization capabilities</p></li>
-<li><p>In the Transformer architecture, the encoder takes input sentences represented as sequences of word IDs. It encodes each word into a 512-dimensional representation.</p></li>
-<li><p>The decoder takes the target sentence as input and receives the encoder’s outputs.</p></li>
-<li><p>The decoder outputs probabilities for each possible next word at each time step. The decoder predicts subsequent words without target inputs, relying on previously generated words until an end-of-sequence token is produced.</p></li>
-<li><p>The key components include two embedding layers, skip connections, layer
-normalization, feed-forward modules, and a softmax activation output layer.</p></li>
-<li><p>The novel components are the Multi-Head Attention layers in both the encoder and decoder.</p></li>
-<li><p>The encoder’s layer encodes relationships between words in the same
-sentence using self-attention, emphasizing more relevant words.</p></li>
-<li><p>The decoder’s Masked Multi-Head Attention layer ensures each word attends only to preceding words, while the upper Multi-Head Attention layer enables the decoder to attend to words in the input sentence.</p></li>
-<li><p>Positonal encodings, the second novel component, are dense vectors representing word positions in a sentence. Added to word embeddings, these encodings provide the model with positional information.</p></li>
-<li><p>Positional encodings are crucial for understanding word order as the
-Multi-Head Attention layers focus on relationships between words.</p></li>
+<li><p><strong>Permutation Feature Importance:</strong></p>
+<ul>
+<li><p>Shuffling feature values to evaluate their impact on model performance.</p></li>
+<li><p>Identifying influential features by measuring performance degradation.</p></li>
+<li><p>Practical application in assessing feature relevance.</p></li>
+<li><p>Makes more sense to use the test data to calculate the importance, because a feature that is important in an overfitting model can just be unhelpful noise.</p></li>
 </ul>
-<p><img alt="transformer.jpg" src="notebook_dl/Figures/transformer.jpg" /></p>
+</li>
+<li><p><strong>Advantages of Permutation Feature Importances:</strong></p>
+<ul>
+<li><p>Compressed, global insight into how the model works</p></li>
+<li><p>Clear interpretation</p></li>
+<li><p>Accounts for all possible interactions between features</p></li>
+<li><p>There are explanation methods that requires you to remove features and retrain models. This method does not require you to do that.</p></li>
+</ul>
+</li>
+<li><p><strong>Disadvantages of Permutation Feature Importances:</strong></p>
+<ul>
+<li><p>Linked to the error of the model. Sometimes how predictions change with feature (linear vs. nonlinear) is what we want.</p></li>
+<li><p>Does not work when you do not have labels (true outcomes).</p></li>
+<li><p>Based on random shuffling. Results can be unstable.</p></li>
+<li><p>Importance values can be misleading when there are multicollinearity (features correlate with one another).</p></li>
+</ul>
+</li>
+<li><p><strong>Alternatives:</strong></p>
+<ul>
+<li><p>PIMP algorithm to produce p-values for the importance</p></li>
+<li><p>Variance-based measures such as Sobol’s indices, functional ANOVA</p></li>
+<li><p>SHAP importance</p></li>
+<li><p>Model-specific methods such as Gini importance for random forests or standardised regression coefficients for regression models</p></li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<div><p>The use of transformer has become more attractive in environmental sciences problems in recent years</p>
+<div><p><strong>Tying Permutation Feature Importances to Model Optimization:</strong> Permutation feature importances can be a useful tool to reduce the complexity of your model if your model has a clear overfitting problem. By setting a cutoff threshold on the feature importance to filter out unimportant input features, we can get a model that probably generalizes better to unseen data.</p>
 </div></blockquote>
 <blockquote>
-<div><blockquote>
-<div><p>Alerskans et al. (2022) developed a transformer-based machine learning moddel to predict the surface temperature values for different sites in Denmark.</p>
+<div><p>In the following proposed data-driven data to predict diabetes, Nirmalraj et al. (2023) applies a feature filtering mechanism based on global explanation methods to improve the data-driven model.</p>
 </div></blockquote>
-</div></blockquote>
+<p><img alt="Permutation_diabetes.jpg" src="notebook_dl/Figures/Permutation_diabetes.jpg" /></p>
+</section>
+<section id="explanation-methods-for-neural-networks">
+<h2><span class="section-number">8.1.6. </span>5. <strong>Explanation Methods for Neural Networks:</strong><a class="headerlink" href="#explanation-methods-for-neural-networks" title="Link to this heading">#</a></h2>
+<p>For Neural Networks, it is still useful to use model-agnostic methods discussed earlier, it may be even more useful to use interpretation methods designed specifically for NNs.</p>
+<p>Compared to model-agnostic methods, these methods are useful because:</p>
+<ul class="simple">
+<li><p>These methods uncover learned featres and concepts in the hidden layers</p></li>
+<li><p>Most model-agnostic methods are originally designed for tabular data</p></li>
+<li><p>Can be more efficient</p></li>
+</ul>
+<p>The simplest explanation method for neural networks is <strong>Vanilla Gradient (Saliency Maps)</strong>.</p>
+<ul class="simple">
+<li><p>Gradient between machine learning predictions (class score of interest in the case of classification) with respect to the input pixels.</p></li>
+<li><p>A plot that summarizes the relevance of each pixel in an image to the machine learning model prediction.</p></li>
+</ul>
+<p>For example, in the case of image classification, pixel attribution methods will highlight and identify the most relevant pixels used by the NN from the input image to arrive at their output. These can help understand how the NN model works. It is a specialised feature attribution method for images.</p>
+<p><strong>Environmental Sciences Application:</strong>
+Saliency maps can be very useful for environmental sciences tasks. Here we show an application of this technique to weather tasks.</p>
 <blockquote>
-<div><blockquote>
-<div><p>In Figure 4 of this paper, the authors compares the bias/errors in the transformer temperature predictions for different seasons to other ML baselines (linear regression, neural network).</p>
+<div><p>Molina et al. (2021) trained a neural network to classify severe thunderstorms from non-severe ones. Saliency maps are used to understand how variables distribute for correctly-classified samples and samples where models are making mistakes.</p>
 </div></blockquote>
-</div></blockquote>
-<blockquote>
-<div><blockquote>
-<div><p>While there are seasonal variabilities in the results, the transformer consistently beats the baselines for all seasons at most of the study sites.</p>
-</div></blockquote>
-</div></blockquote>
-<p><img alt="transformer_environmental.jpg" src="notebook_dl/Figures/transformer_environmental.jpg" /></p>
+<p><img alt="saliency_map_atmsci.jpg" src="notebook_dl/Figures/saliency_map_atmsci.jpg" /></p>
+<p>Other methods include:</p>
+<ul class="simple">
+<li><p><strong>DeconvNet:</strong></p>
+<ul>
+<li><p>Reverse a neural network (from prediction to inputs)</p></li>
+</ul>
+</li>
+<li><p><strong>Grad-CAM:</strong></p>
+<ul>
+<li><p>Backpropagates the gradient to the last convolutional layer.</p></li>
+<li><p>It finds smooth representations of abstract features learned by the CNN model.</p></li>
+<li><p>This method gives us <em>heat maps</em></p></li>
+</ul>
+</li>
+<li><p><strong>Guided Grad-CAM</strong></p></li>
+<li><p><strong>SmoothGrad:</strong></p>
+<ul>
+<li><p>Add noise and averaging over the artifically noisy gradient.</p></li>
+<li><p>This method gives smoother explanations than other gradient-based methods (e.g., Vanilla Gradient)</p></li>
+</ul>
+</li>
+</ul>
+<p>These are <strong>pixle attribution methods</strong> that assigns relevance / importance to every points in the image.</p>
+<p>Disadvantages of using these methods:</p>
+<ul class="simple">
+<li><p><strong>No ground truth:</strong></p>
+<ul>
+<li><p>Different attribution methods often gives very different, even contradictory results.</p></li>
+<li><p>Since these explanations are not directly observed, it is difficult to say which method gives the most trustworthy explanation.</p></li>
+</ul>
+</li>
+<li><p><strong>Fragile to noise:</strong></p>
+<ul>
+<li><p>Adding adversarial perturbations to an image can lead to very different explanations.</p></li>
+</ul>
+</li>
+</ul>
 <p>Reference:</p>
-<ol class="arabic simple">
-<li><p>Rassem, A., El-Beltagy, M., &amp; Saleh, M. (2017). Cross-country skiing gears classification using deep learning. arXiv preprint arXiv:1706.08924.</p></li>
-<li><p>Yang, Y., Xiong, Q., Wu, C., Zou, Q., Yu, Y., Yi, H., &amp; Gao, M. (2021). A study on water quality prediction by a hybrid CNN-LSTM model with attention mechanism. Environmental Science and Pollution Research, 28(39), 55129-55139.</p></li>
-<li><p>Alerskans, E., Nyborg, J., Birk, M., &amp; Kaas, E. (2022). A transformer neural network for predicting near‐surface temperature. Meteorological Applications, 29(5), e2098.</p></li>
-</ol>
+<p>(1) Wang, T., &amp; Lin, Q. (2021). Hybrid predictive models: When an interpretable model collaborates with a black-box model. The Journal of Machine Learning Research, 22(1), 6085-6122.</p>
+<p>(2) Du, M., Liu, N., &amp; Hu, X. (2019). Techniques for interpretable machine learning. Communications of the ACM, 63(1), 68-77.</p>
+<p>(3) Obringer, R., &amp; Nateghi, R. (2018). Predicting urban reservoir levels using statistical learning techniques. Scientific reports, 8(1), 5164.</p>
+<p>(4) Nirmalraj, S., Antony, A. S. M., Srideviponmalar, P., Oliver, A. S., Velmurugan, K. J., Elanangai, V., &amp; Nagarajan, G. (2023). Permutation feature importance-based fusion techniques for diabetes prediction. Soft Computing, 1-12.</p>
+<p>(5) Molina, M. J., Gagne, D. J., &amp; Prein, A. F. (2021). A benchmark to test generalization capabilities of deep learning methods to classify severe convective storms in a changing climate. Earth and Space Science, 8(9), e2020EA001490.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># - **Layer-wise Relevance Propagation (LRP):**</span>
+<span class="c1">#  - Assigning relevance scores to individual neurons or layers.</span>
+<span class="c1">#  - Tracing contributions of input features to model predictions.</span>
+<span class="c1">#  - Enhancing interpretability in neural network decision-making.</span>
+
+<span class="c1">#- **Activation Maximization:**</span>
+<span class="c1">#  - Generating inputs that maximally activate specific neurons.</span>
+<span class="c1">#  - Understanding what patterns or features trigger certain neural responses.</span>
+<span class="c1">#  - Useful for visualizing what the model &quot;looks for&quot; in data.</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -743,20 +798,20 @@ Multi-Head Attention layers focus on relationships between words.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="W6_RNN_Summary.html"
+       href="W8_XAI.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.1. </span>Introduction to Recurrent Neural Networks (RNN)</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Explainable Artifical Intelligence (XAI):</p>
       </div>
     </a>
     <a class="right-next"
-       href="S6_1_Composing_Music_With_RNNs_CNNs.html"
+       href="Chapter8_Ex1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.3. </span>Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -776,8 +831,12 @@ Multi-Head Attention layers focus on relationships between words.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">6.2.1. Processing Sequences using RNNs and CNNs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">6.2.2. Transformers and Attention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">8.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">8.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">8.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">8.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">8.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
 </ul>
   </nav></div>
 

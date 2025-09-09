@@ -1,0 +1,1665 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.5. (Exercise) Introduction to Hybrid Models: Combining Physics-Based and Machine Learning Models &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook_dl/10_Hybird_Models';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="10. Hybrid Modeling and Knowledge-Guided Learning" href="HybridModeling_summary.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebook/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_ml/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_ml/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_1_SVM.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_1_Decision_Trees_and_RF.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_3_Ensemble_Learning_Random_Forests.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S2_4_Wildfire_Risk_Italy.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebook_ml/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning (Clustering, Dimensionality Reduction) and Environmental Complexity</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebook_ml/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">6. Recurrent Neural Networks and Hydrological Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="W6_RNN_Summary.html">6.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Neural_Networks_for_Time_Series_Predictions.html">6.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">6.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">6.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="GNN_Knowledge.html">7. Graph Neural Networks and Interconnected Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Graph_neural_networks.html">7.6. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LAM_Graphcast.html">7.7. (Exercise) Neural Weather Prediction</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_GenerativeAI.html">9.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week_9_Generative_modeling.html">9.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="HybridModeling_summary.html">10. Hybrid Modeling and Knowledge-Guided Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.5. (Exercise) Introduction to Hybrid models</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebook_dl/10_Hybird_Models.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebook_dl/10_Hybird_Models.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>(Exercise) Introduction to Hybrid Models: Combining Physics-Based and Machine Learning Models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">10.5.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">10.5.1.1. Introduction to Glacier Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">10.5.1.2. Numerical Solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-base">10.5.1.2.1. Boundary Conditions with No-Slip Condition at the Base</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">10.5.2. Introduction to Hybrid Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">10.5.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">10.5.2.1.1. Overview of the Machine Learning Approach</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-you-do-not-need-to-know">10.5.2.1.2. Helper Functions You Do Not Need to Know</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">10.5.2.1.3. Functions to Prepare the Data for the Model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-augmentation">10.5.2.1.4. Data augmentation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">10.5.2.1.5. Start working on the CNN model</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-the-hybrid-model">10.5.2.2. Implementing the Hybrid Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-for-the-hybrid-model">10.5.2.2.1. Helper functions for the hybrid model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">10.5.2.2.2. Run the hybrid model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/freddy0218/2025_MLEES_book/blob/main/notebook_dl/10_Hybird_Models.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section id="exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models">
+<h1><span class="section-number">10.5. </span>(Exercise) Introduction to Hybrid Models: Combining Physics-Based and Machine Learning Models<a class="headerlink" href="#exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2><span class="section-number">10.5.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Model glaciers using physics-based approaches</strong>.</p></li>
+<li><p><strong>Understand hybrid models</strong> and how they integrate physics-based and ML methods.</p></li>
+<li><p><strong>Explore the advantages and limitations</strong> of hybrid models.</p></li>
+<li><p><strong>Examine applications</strong> of combining ML and physical models.</p></li>
+</ol>
+<p><strong>Q: What is a glacier from your perspective?</strong></p>
+<center>
+<img src="https://i0.wp.com/lenews.ch/wp-content/uploads/2017/12/Aletsch-glacier_%C2%A9-Reinhardt-_-Dreamstime.jpg?w=800&ssl=1" alt="Aletsch Glacier Switzerland" width=80%></img>
+</center>
+<figcaption>Figure 1: Aletsch Glacier in Switzerland. Source: Le News (2017).</figcaption>
+<p><br> <i> <strong>A modeler’s perspective:</strong> A glacier is a non-Newtonian fluid with stress-dependent viscosity, flowing from higher to lower elevations. </i></p>
+</center>
+<section id="introduction-to-glacier-flow">
+<h3><span class="section-number">10.5.1.1. </span>Introduction to Glacier Flow<a class="headerlink" href="#introduction-to-glacier-flow" title="Link to this heading">#</a></h3>
+<p>Glaciers are massive bodies of ice that flow slowly under their own weight. The flow of ice in a glacier is a complex process governed by physical laws that describe how the ice deforms and moves.</p>
+<p>Given an initial glacier geometry, the time evolution of ice thickness <span class="math notranslate nohighlight">\(h(x, y, t)\)</span> is determined by the mass conservation equation, which couples ice dynamics and surface mass balance (SMB) through:</p>
+<p>\begin{equation}
+\frac{\partial h}{\partial t} + \nabla \cdot (\mathbf{u}h) = \text{SMB},
+\end{equation}</p>
+<p>where <span class="math notranslate nohighlight">\(\nabla \cdot\)</span> denotes the divergence operator with respect to the flux (<span class="math notranslate nohighlight">\(Q = \mathbf{u}h\)</span>). <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the vertically averaged horizontal ice velocity field, and SMB is the surface mass balance function, representing the integration of ice accumulation and ablation over one year.</p>
+<p>The mass conservation equation is generic and can be applied to model glacier evolution in various applications, provided adequate SMB and ice-flow model components are available.</p>
+<p>In the following, we primarily focus on developing an efficient numerical method to compute ice flow, as it is often the most computationally expensive component of glacier evolution models:</p>
+<ul class="simple">
+<li><p>First, we will use a numerical solution to compute <span class="math notranslate nohighlight">\(Q\)</span>.</p></li>
+<li><p>Then, we will employ a data-driven (ML) approach to emulate ice flow.</p></li>
+</ul>
+<p>Although state-of-the-art ML techniques, such as Physics-Informed Neural Networks (PINNs), are widely used, they typically do not conserve ice thickness to machine precision. To address this limitation, this chapter focuses on hybrid models that explicitly integrate the mass conservation equation while leveraging ML for the computationally intensive modeling of ice flow.</p>
+</section>
+<section id="numerical-solution-for-u">
+<h3><span class="section-number">10.5.1.2. </span>Numerical Solution for <strong>u</strong><a class="headerlink" href="#numerical-solution-for-u" title="Link to this heading">#</a></h3>
+<p>We can describe the ice-flow equations under stress, but their computational cost makes them impractical for large-scale ice-sheet modeling over long time periods. This leads us to introduce the <strong>shallow ice approximation (SIA)</strong>, which is used in ice sheet models due to its simplicity and efficiency.</p>
+<p>The SIA simplifies the full Stokes equations by assuming that the ice flow is dominated by vertical shear stresses and that horizontal stresses can be neglected. This results in an expression for the ice velocity in terms of the ice thickness gradient and the surface slope. The ice velocity <span class="math notranslate nohighlight">\(\mathbf{u}[m/a]\)</span> can be approximated as:</p>
+<p>\begin{equation}
+\mathbf{u} = -\left(\frac{2 A}{n+2}\right) \left(\rho g \sin(s)\right)^n h^{n+1} \nabla h.
+\end{equation}</p>
+<p>This equation governs the horizontal velocity of ice based on the local ice thickness and slope. Substituting <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> into the mass conservation equation, we obtain:</p>
+<p>\begin{equation}
+\frac{\partial h}{\partial t} + \nabla \cdot \left(D(h,z)\frac{\partial z}{\partial x}\right) = \text{SMB},
+\end{equation}</p>
+<p>where</p>
+<p>\begin{equation}
+D(h,z) = f_d (\rho g)^3 h^5 |\nabla S|^2.
+\end{equation}</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameters</strong></p></th>
+<th class="head"><p><strong>Values</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ice velocity <span class="math notranslate nohighlight">\(\mathbf{u}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(m/a\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>physical constant <span class="math notranslate nohighlight">\( f_d \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\( 1 \times 10^{-15} [Pa^{-3} yr^{-1}]\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>ice thickness    <span class="math notranslate nohighlight">\(h\)</span></p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-odd"><td><p>ice density <span class="math notranslate nohighlight">\( \rho_{\mathrm{ice}} \)</span> (<span class="math notranslate nohighlight">\(\rho\)</span>)</p></td>
+<td><p>910 <span class="math notranslate nohighlight">\(kg/m^{3}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>gravitational constant <span class="math notranslate nohighlight">\( g \)</span></p></td>
+<td><p>9.81 <span class="math notranslate nohighlight">\(m s^{-2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Glen’s flow rate factor <span class="math notranslate nohighlight">\( A \)</span></p></td>
+<td><p>MPa^{−3}a^{−1}</p></td>
+</tr>
+<tr class="row-even"><td><p>Glen’s law exponent <span class="math notranslate nohighlight">\( n \)</span></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>surface slope <span class="math notranslate nohighlight">\( s \)</span></p></td>
+<td><p>gradient</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that <span class="math notranslate nohighlight">\(Pa =Kg/(m⋅s^2)\)</span></p>
+<p>This equation describes the time evolution of the ice thickness, where the velocity <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is computed from the ice sheet’s surface slope and thickness. This approach provides a balance between accuracy and computational efficiency and is widely used in large-scale ice sheet models.</p>
+<section id="boundary-conditions-with-no-slip-condition-at-the-base">
+<h4><span class="section-number">10.5.1.2.1. </span>Boundary Conditions with No-Slip Condition at the Base<a class="headerlink" href="#boundary-conditions-with-no-slip-condition-at-the-base" title="Link to this heading">#</a></h4>
+<p>In many glacier models, we assume a no-slip condition at the base, meaning the ice velocity is zero at the bedrock. This condition is suitable for glaciers that are frozen to their beds:</p>
+<p>\begin{equation}
+\mathbf{u} = 0 \quad \text{on the bedrock surface}.
+\end{equation}</p>
+<p><strong>Stress-Free Surface</strong></p>
+<p>At the glacier surface, which is exposed to air, a stress-free boundary condition is typically applied:</p>
+<p>\begin{equation}
+\sigma \cdot \mathbf{n} = 0 \quad \text{on the surface},
+\end{equation}</p>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is the outward normal vector at the glacier surface.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import the necessary libraies</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">import</span> <span class="nn">netCDF4</span> <span class="c1"># This may require &quot;!pip install netcdf4 if uninstalled&quot;</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+<span class="kn">import</span> <span class="nn">pooch</span>
+
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>gdown<span class="w"> </span>--quiet
+
+
+<span class="c1"># Make True if you want to train the model from scratch. It should take 30 min to train.</span>
+<span class="n">train_mode</span><span class="o">=</span><span class="kc">False</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">netCDF4</span> <span class="c1"># This may require &quot;!pip install netcdf4 if uninstalled&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Physical parameters</span>
+<span class="n">Lx</span> <span class="o">=</span> <span class="mi">49700</span>    <span class="c1"># Domain length in x (m)</span>
+<span class="n">Ly</span> <span class="o">=</span> <span class="mi">32300</span>    <span class="c1"># Domain length in y (m)</span>
+<span class="n">ttot</span> <span class="o">=</span> <span class="mi">700</span>   <span class="c1"># Time limit (yr)</span>
+<span class="n">grad_b</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1"># Mass balance gradient (no unit)</span>
+<span class="n">b_max</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Maximum precip (m/yr)</span>
+<span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># Elevation of equilibrium line altitude (m)</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mf">910.0</span>   <span class="c1"># Ice density (g/m^3)</span>
+<span class="n">g</span>   <span class="o">=</span> <span class="mf">9.81</span>    <span class="c1"># Earth&#39;s gravity (m/s^2)</span>
+<span class="n">fd</span>  <span class="o">=</span> <span class="mf">1e-18</span>   <span class="c1"># Deformation constant (Pa^-3 y^-1)</span>
+
+
+
+<span class="c1"># Initialization &amp; load data</span>
+
+<span class="n">nout</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Frequency of plotting</span>
+<span class="n">dtmax</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># maximum time step</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">dtmax</span>  <span class="c1"># Initial time step</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Cell size in y</span>
+<span class="n">nx</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">Lx</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">ny</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">Ly</span><span class="o">/</span><span class="n">dy</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  <span class="c1"># x-coordinates</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>  <span class="c1"># y-coordinates</span>
+
+
+<span class="n">bedrock_url</span><span class="o">=</span><span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EXI_z9iu_MlMn_J4IdG97DkBpvE8K-IKiZUxuEogU-cwVg?download=1&#39;</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">bedrock_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">)</span>
+<span class="n">nc_file</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>  <span class="c1"># Load the NetCDF file</span>
+<span class="n">Z_topo</span> <span class="o">=</span> <span class="n">nc_file</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;topg&#39;</span><span class="p">]</span>    <span class="c1"># Replace &#39;topg&#39; with the appropriate v</span>
+
+<span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>  <span class="c1"># Initial ice thickness</span>
+<span class="n">Z_surf</span> <span class="o">=</span> <span class="n">Z_topo</span> <span class="o">+</span> <span class="n">H_ice</span>  <span class="c1"># Initial ice surface</span>
+<span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initial time</span>
+<span class="n">it</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from &#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EXI_z9iu_MlMn_J4IdG97DkBpvE8K-IKiZUxuEogU-cwVg?download=1&#39; to file &#39;/root/.cache/pooch/fd498e05e22acd7c95f96c4fc609f0a0-EXI_z9iu_MlMn_J4IdG97DkBpvE8K-IKiZUxuEogU-cwVg&#39;.
+SHA256 hash of downloaded file: 36734c721e0fb8c49bd62fd558efe9bfc79450493f1b5ed2cf7cd2b3f3f752ec
+Use this value as the &#39;known_hash&#39; argument of &#39;pooch.retrieve&#39; to ensure that the file hasn&#39;t changed if it is downloaded again in the future.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop</span>
+<span class="k">while</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="n">ttot</span><span class="p">:</span>
+
+    <span class="c1"># Update time</span>
+    <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">it</span>   <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># Calculate H_avg, size (ny-1,nx-1)</span>
+    <span class="n">H_avg</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">H_ice</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Compute Snorm, size (ny-1,nx-1)</span>
+    <span class="n">Sx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+    <span class="n">Sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span>
+    <span class="n">Sx</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">Sx</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">Sx</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:])</span>
+    <span class="n">Sy</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">Sy</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Sy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>
+    <span class="n">Snorm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Sx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Sy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Compute D, size (ny-1,nx-1)</span>
+    <span class="c1"># Hint: Use `H_avg` in order to have the right dimensions for D</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">__</span> <span class="o">*</span> <span class="n">__</span><span class="o">**</span><span class="mf">3.0</span> <span class="o">*</span> <span class="n">__</span><span class="o">**</span><span class="mi">5</span> <span class="o">*</span> <span class="n">__</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="c1"># Compute dt</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">D</span><span class="p">)),</span> <span class="n">dtmax</span><span class="p">)</span>
+
+    <span class="c1"># Compute qx, size (ny-2,nx-1)</span>
+    <span class="n">qx</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
+
+    <span class="c1"># Compute qy, size (ny-1,nx-2)</span>
+    <span class="n">qy</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span>
+
+    <span class="c1"># Update rule (diffusion)</span>
+    <span class="n">dHdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">qx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">qy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span><span class="p">)</span>
+
+    <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dHdt</span> <span class="c1"># size (ny-2,nx-2)</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">grad_b</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_surf</span> <span class="o">-</span> <span class="n">Z_ELA</span><span class="p">),</span> <span class="n">b_max</span><span class="p">)</span>
+
+    <span class="c1"># Update rule (mass balance)</span>
+    <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Update rule (positive thickness)</span>
+    <span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">H_ice</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># updatesurface topography</span>
+    <span class="n">Z_surf</span> <span class="o">=</span> <span class="n">Z_topo</span> <span class="o">+</span> <span class="n">H_ice</span>
+
+    <span class="c1"># Update ELA after 500 years</span>
+    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">2700</span>
+
+    <span class="c1"># Display</span>
+    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">nout</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Clear the previous output in the notebook</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+        <span class="c1"># First subplot: Ice surface</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="o">/</span><span class="mi">1000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ice Surface at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; y&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Second subplot: Ice thickness</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">H_ice</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">H_ice</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="o">/</span><span class="mi">1000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ice Thickness (m)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ice Thickness at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; y&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Show the plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>⚠️ <em>Note: The previous code snippet took a while to execute, confirming the computational cost of traditional numerical models.</em></p>
+<p><strong>Q: Which is the most expensive part of solving the mass conservation equation?</strong><br />
+<i>The most expensive part is the calculation of <strong>u/D</strong>.</i></p>
+</section>
+</section>
+</section>
+<section id="introduction-to-hybrid-modeling">
+<h2><span class="section-number">10.5.2. </span>Introduction to Hybrid Modeling<a class="headerlink" href="#introduction-to-hybrid-modeling" title="Link to this heading">#</a></h2>
+<p>Hybrid models combine traditional physics-based models (model-based, MB) with machine learning (ML) to leverage the strengths of both approaches. In purely physics-based models, system dynamics are governed by known equations, but these models often require detailed domain knowledge and can be limited by the availability of precise parameters. Machine learning, by contrast, can model complex systems without relying on such parameters, making it particularly useful for data-rich but theory-poor domains. However, ML models may struggle to generalize beyond the data they are trained on and can sometimes produce results that violate known physical laws.</p>
+<p><strong>Q: How can hybrid models overcome these limitations?</strong></p>
+<p><i>Hybrid modeling addresses these limitations by incorporating physics-informed constraints, embedding known physical equations into machine learning models, or combining the outputs of both approaches. The goal is to create models that are more accurate and robust, particularly in cases with limited data or imperfect physical models. By fusing physics with data-driven methods, hybrid models can handle sparse datasets, correct ML predictions that violate physical laws, and produce interpretable results across a wide range of applications.</i></p>
+<p><strong>Q: How can we make our simulations run faster?</strong><br />
+<i>We can replace the calculation of <strong>u</strong> with an emulator. The emulator takes as input the state of the medium (glacier thickness, slope of the glacier, etc.) and calculates the velocity field (<strong>u</strong>) for the corresponding time step.</i></p>
+<section id="emulating-ice-flow-with-machine-learning">
+<h3><span class="section-number">10.5.2.1. </span>Emulating Ice Flow with Machine Learning<a class="headerlink" href="#emulating-ice-flow-with-machine-learning" title="Link to this heading">#</a></h3>
+<p>The <em>Instructed Glacier Model</em> (<a class="reference external" href="https://github.com/jouvetg/igm">IGM</a>) uses a convolutional neural network (CNN) to predict ice flow, trained on data from traditional models such as hybrid SIA+SSA or Stokes models. This approach replaces the computationally expensive ice flow component with a significantly faster emulator, enabling simulations that are up to 1000 times faster while maintaining over 90% fidelity.</p>
+<section id="overview-of-the-machine-learning-approach">
+<h4><span class="section-number">10.5.2.1.1. </span>Overview of the Machine Learning Approach<a class="headerlink" href="#overview-of-the-machine-learning-approach" title="Link to this heading">#</a></h4>
+<p>A simple version of the IGM can be built using the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Input Variables</strong>: The ML model takes ice thickness and surface slope gradients as inputs:<br />
+\begin{equation}
+\left{ h(x,y), \frac{\partial s}{\partial x}, \frac{\partial s}{\partial y} \right}.
+\end{equation}</p></li>
+<li><p><strong>Training</strong>: A convolutional neural network (CNN) is trained on a dataset generated from high-order glacier flow models.</p></li>
+<li><p><strong>Prediction</strong>: Once trained, the emulator predicts the vertically averaged ice flow components u and v based on the input variables.</p></li>
+</ol>
+<p>The input and output fields are 2D grid rasters:</p>
+<p>\begin{equation}
+\mathbb{R}^{N_x \times N_y \times 3} \rightarrow \mathbb{R}^{N_x \times N_y \times 2}.
+\end{equation}</p>
+<p><strong>Q: What is another advantage of the hybrid model (besides making faster models)?</strong><br />
+<i>Hybrid models can be beneficial in theory-poor domains where we do not know the equations governing system dynamics. However, sufficient data is required, and care must be taken to ensure the model is generalizable. A potential pitfall, when there is insufficient data or a lack of caution, is overfitting.</i></p>
+</section>
+<section id="helper-functions-you-do-not-need-to-know">
+<h4><span class="section-number">10.5.2.1.2. </span>Helper Functions You Do Not Need to Know<a class="headerlink" href="#helper-functions-you-do-not-need-to-know" title="Link to this heading">#</a></h4>
+<p>These functions are auxiliary tools used in the notebook to handle common tasks like loading data, scaling fields, augmenting data, and visualizing results. They simplify the workflow but are not the focus of this exercise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Helper functions</span>
+
+<span class="c1"># Function to load NetCDF files</span>
+
+<span class="k">def</span> <span class="nf">load_from_pooch</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">nc_file</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nc_file</span>
+
+
+<span class="c1"># Function to scale the field based on 90th percentile of its maximum</span>
+<span class="k">def</span> <span class="nf">scale_field</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="n">max_90th_percentile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">field</span> <span class="o">/</span> <span class="n">max_90th_percentile</span>
+
+<span class="c1"># Function to augment the data by flipping and adding noise</span>
+<span class="k">def</span> <span class="nf">augment_data</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+    <span class="n">aug_inputs</span><span class="p">,</span> <span class="n">aug_outputs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">inp</span><span class="p">,</span> <span class="n">out</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>
+        <span class="c1"># Original data</span>
+        <span class="n">aug_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+        <span class="n">aug_outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="c1"># Horizontal flip</span>
+        <span class="n">aug_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Flip along x-axis</span>
+        <span class="n">aug_outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+        <span class="c1"># Vertical flip</span>
+        <span class="n">aug_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Flip along y-axis</span>
+        <span class="n">aug_outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">aug_inputs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">aug_outputs</span><span class="p">)</span>
+
+<span class="c1"># Plot input and output fields side by side with color bars</span>
+<span class="k">def</span> <span class="nf">plot_input_output</span><span class="p">(</span><span class="n">thk</span><span class="p">,</span> <span class="n">slopesurx</span><span class="p">,</span> <span class="n">slopesury</span><span class="p">,</span> <span class="n">ubar</span><span class="p">,</span> <span class="n">vbar</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="c1"># Plot inputs</span>
+    <span class="n">im0</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thk</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ice Thickness (thk)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesurx</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope x (slopesurx)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+    <span class="n">im2</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesury</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope y (slopesury)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot outputs</span>
+    <span class="n">im3</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ubar</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Velocity x (ubar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+    <span class="n">im4</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">vbar</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Velocity y (vbar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im4</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Adjust layout</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">plot_comparison</span><span class="p">(</span><span class="n">thk</span><span class="p">,</span> <span class="n">slopesurx</span><span class="p">,</span> <span class="n">slopesury</span><span class="p">,</span> <span class="n">true_ubar</span><span class="p">,</span> <span class="n">true_vbar</span><span class="p">,</span> <span class="n">pred_ubar</span><span class="p">,</span> <span class="n">pred_vbar</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="c1"># Plot inputs with individual color bars</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thk</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ice Thickness (thk)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesurx</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope x (slopesurx)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesury</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope y (slopesury)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># Determine the shared vmin and vmax for velocity comparisons</span>
+    <span class="n">vmin_ubar</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">true_ubar</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">pred_ubar</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">vmax_ubar</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">true_ubar</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pred_ubar</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">vmin_vbar</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">true_vbar</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">pred_vbar</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">vmax_vbar</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">true_vbar</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pred_vbar</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+    <span class="c1"># Plot true outputs with shared color bars</span>
+    <span class="n">im_ubar_true</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_ubar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_ubar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;True Velocity x (ubar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_true</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">im_vbar_true</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_vbar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_vbar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;True Velocity y (vbar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_true</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Plot predicted outputs with the same color scales</span>
+    <span class="n">im_ubar_pred</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_ubar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_ubar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted Velocity x (ubar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_pred</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">im_vbar_pred</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_vbar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_vbar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted Velocity y (vbar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_pred</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Plot difference between true and predicted velocities</span>
+    <span class="n">im_ubar_diff</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">pred_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Difference Velocity x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_diff</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">im_vbar_diff</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">pred_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Difference Velocity y&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_diff</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># Adjust layout</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-to-prepare-the-data-for-the-model">
+<h4><span class="section-number">10.5.2.1.3. </span>Functions to Prepare the Data for the Model<a class="headerlink" href="#functions-to-prepare-the-data-for-the-model" title="Link to this heading">#</a></h4>
+<p>These functions handle the preprocessing and preparation of data to ensure it is ready for model training. They include steps such as scaling, stacking input and output fields, splitting datasets, and augmenting the data to improve training outcomes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_data</span> <span class="p">(</span><span class="n">merged_data</span><span class="p">):</span>
+    <span class="c1"># Step 1: Extract the input and output fields</span>
+    <span class="n">thk</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;thk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>           <span class="c1"># Ice thickness</span>
+    <span class="n">slopsurfx</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;slopsurfx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Surface slope in x</span>
+    <span class="n">slopsurfy</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;slopsurfy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Surface slope in y</span>
+    <span class="n">ubar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;ubar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity x component</span>
+    <span class="n">vbar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;vbar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity y component</span>
+    <span class="n">usurf</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;usurf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="c1"># Calculate 90th percentile scaling factors for training</span>
+    <span class="n">scaling_factors</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;thk&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">thk</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;slopsurfx&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">slopsurfx</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;slopsurfy&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">slopsurfy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;ubar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ubar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;vbar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">vbar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Step 2: Scale each field using the 90th percentile of its maximum</span>
+    <span class="n">thk_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">thk</span><span class="p">)</span>
+    <span class="n">slopsurfx_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">slopsurfx</span><span class="p">)</span>
+    <span class="n">slopsurfy_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">slopsurfy</span><span class="p">)</span>
+    <span class="n">ubar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">ubar</span><span class="p">)</span>
+    <span class="n">vbar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">vbar</span><span class="p">)</span>
+    <span class="n">usurf_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">usurf</span><span class="p">)</span>
+
+    <span class="c1"># Step 3: Stack inputs and outputs after scaling</span>
+    <span class="n">inputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">thk_scaled</span><span class="p">,</span> <span class="n">slopsurfx_scaled</span><span class="p">,</span> <span class="n">slopsurfy_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 3)</span>
+    <span class="n">outputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">ubar_scaled</span><span class="p">,</span> <span class="n">vbar_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 2)</span>
+
+    <span class="c1"># Check shapes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inputs scaled shape: </span><span class="si">{</span><span class="n">inputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outputs scaled shape: </span><span class="si">{</span><span class="n">outputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Visualize the data</span>
+
+    <span class="n">time_idx</span><span class="o">=</span><span class="mi">20</span>
+    <span class="n">plot_input_output</span><span class="p">(</span><span class="n">thk</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">slopsurfx</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">slopsurfy</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">inputs_scaled</span><span class="p">,</span> <span class="n">outputs_scaled</span><span class="p">,</span> <span class="n">scaling_factors</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-augmentation">
+<h4><span class="section-number">10.5.2.1.4. </span>Data augmentation<a class="headerlink" href="#data-augmentation" title="Link to this heading">#</a></h4>
+<p>This script is intended for demonstration purposes; however, the available dataset is limited. To enhance its effectiveness, what strategies would you recommend for augmenting the data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">augment_data_for_training</span><span class="p">(</span><span class="n">inputs_scaled</span><span class="p">,</span><span class="n">outputs_scaled</span><span class="p">):</span>
+    <span class="c1"># Split index for 90-10 split</span>
+    <span class="n">split_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.9</span> <span class="o">*</span> <span class="n">inputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Train-test split for inputs</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">___________</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">____________</span>
+
+    <span class="c1"># Train-test split for outputs</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">___________</span>
+    <span class="n">y_test</span> <span class="o">=</span> <span class="n">____________</span>
+
+    <span class="c1"># Apply data augmentation</span>
+    <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span> <span class="o">=</span> <span class="n">_______________</span>
+    <span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span> <span class="o">=</span> <span class="n">_______________</span>
+    <span class="c1"># Check shapes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_train shape: </span><span class="si">{</span><span class="n">y_train_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_test shape: </span><span class="si">{</span><span class="n">y_test_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">X_test_aug</span><span class="p">,</span> <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">,</span> <span class="n">y_train_aug</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="start-working-on-the-cnn-model">
+<h4><span class="section-number">10.5.2.1.5. </span>Start working on the CNN model<a class="headerlink" href="#start-working-on-the-cnn-model" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration as a dictionary</span>
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nb_layers&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>               <span class="c1"># Number of convolutional layers</span>
+    <span class="s2">&quot;nb_out_filter&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>           <span class="c1"># Number of output filters for Conv2D</span>
+    <span class="s2">&quot;conv_ker_size&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>            <span class="c1"># Convolution kernel size</span>
+    <span class="s2">&quot;activation&quot;</span><span class="p">:</span> <span class="s2">&quot;relu&quot;</span><span class="p">,</span>          <span class="c1"># Activation function: &quot;relu&quot; or &quot;lrelu&quot;</span>
+    <span class="s2">&quot;dropout_rate&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>           <span class="c1"># Dropout rate</span>
+    <span class="s2">&quot;regularization&quot;</span><span class="p">:</span> <span class="mf">0.0001</span>       <span class="c1"># L2 regularization</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_cnn</span><span class="p">(</span><span class="n">nb_inputs</span><span class="p">,</span> <span class="n">nb_outputs</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build a convolutional neural network (CNN) for glacier velocity field prediction.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - nb_inputs: Number of input channels (thk, slopsurfx, slopsurfy).</span>
+<span class="sd">    - nb_outputs: Number of output channels (ubar, vbar).</span>
+<span class="sd">    - config: Dictionary containing CNN configuration.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - A compiled Keras model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Define the input layer</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">nb_inputs</span><span class="p">])</span>
+
+    <span class="n">conv</span> <span class="o">=</span> <span class="n">inputs</span>
+
+    <span class="c1"># Activation function choice</span>
+    <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;activation&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;lrelu&quot;</span><span class="p">:</span>
+        <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+
+    <span class="c1"># Stack convolutional layers</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;nb_layers&#39;</span><span class="p">]):</span>
+        <span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span>
+            <span class="n">filters</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;nb_out_filter&#39;</span><span class="p">],</span>
+            <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conv_ker_size&#39;</span><span class="p">],</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;conv_ker_size&#39;</span><span class="p">]),</span>
+            <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;regularization&#39;</span><span class="p">]),</span>
+            <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;same&quot;</span>
+        <span class="p">)(</span><span class="n">conv</span><span class="p">)</span>
+
+        <span class="n">conv</span> <span class="o">=</span> <span class="n">activation</span><span class="p">(</span><span class="n">conv</span><span class="p">)</span>
+
+        <span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dropout_rate&#39;</span><span class="p">])(</span><span class="n">conv</span><span class="p">)</span>
+
+    <span class="c1"># Output layer with nb_outputs channels (for ubar, vbar)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span>
+        <span class="n">filters</span><span class="o">=</span><span class="n">nb_outputs</span><span class="p">,</span>
+        <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">activation</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">)(</span><span class="n">conv</span><span class="p">)</span>
+
+    <span class="c1"># Return the complete model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build and Compile the Model</span>
+
+<span class="c1"># Define the number of input channels (thk, slopsurfx, slopsurfy) and output channels (ubar, vbar)</span>
+<span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># thk, slopsurfx, slopsurfy</span>
+<span class="n">nb_outputs</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># ubar, vbar</span>
+
+<span class="c1"># Build the CNN model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">build_cnn</span><span class="p">(</span><span class="n">nb_inputs</span><span class="p">,</span> <span class="n">nb_outputs</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mae&quot;</span><span class="p">,</span> <span class="s2">&quot;mse&quot;</span><span class="p">])</span>
+
+<span class="c1"># Print model summary</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "functional"</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Layer (type)              </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">        Param # </span>┃<span style="font-weight: bold"> Connected to           </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ input_layer (<span style="color: #0087ff; text-decoration-color: #0087ff">InputLayer</span>)  │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">3</span>)  │              <span style="color: #00af00; text-decoration-color: #00af00">0</span> │ -                      │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ conv2d (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv2D</span>)           │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │            <span style="color: #00af00; text-decoration-color: #00af00">896</span> │ input_layer[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]      │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ re_lu (<span style="color: #0087ff; text-decoration-color: #0087ff">ReLU</span>)              │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │              <span style="color: #00af00; text-decoration-color: #00af00">0</span> │ conv2d[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>],          │
+│                           │                        │                │ conv2d_1[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>],        │
+│                           │                        │                │ conv2d_2[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>],        │
+│                           │                        │                │ conv2d_3[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]         │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ dropout (<span style="color: #0087ff; text-decoration-color: #0087ff">Dropout</span>)         │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │              <span style="color: #00af00; text-decoration-color: #00af00">0</span> │ re_lu[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]            │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ conv2d_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv2D</span>)         │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │          <span style="color: #00af00; text-decoration-color: #00af00">9,248</span> │ dropout[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]          │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ dropout_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dropout</span>)       │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │              <span style="color: #00af00; text-decoration-color: #00af00">0</span> │ re_lu[<span style="color: #00af00; text-decoration-color: #00af00">1</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]            │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ conv2d_2 (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv2D</span>)         │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │          <span style="color: #00af00; text-decoration-color: #00af00">9,248</span> │ dropout_1[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]        │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ dropout_2 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dropout</span>)       │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │              <span style="color: #00af00; text-decoration-color: #00af00">0</span> │ re_lu[<span style="color: #00af00; text-decoration-color: #00af00">2</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]            │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ conv2d_3 (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv2D</span>)         │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │          <span style="color: #00af00; text-decoration-color: #00af00">9,248</span> │ dropout_2[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]        │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ dropout_3 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dropout</span>)       │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">32</span>) │              <span style="color: #00af00; text-decoration-color: #00af00">0</span> │ re_lu[<span style="color: #00af00; text-decoration-color: #00af00">3</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]            │
+├───────────────────────────┼────────────────────────┼────────────────┼────────────────────────┤
+│ conv2d_4 (<span style="color: #0087ff; text-decoration-color: #0087ff">Conv2D</span>)         │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">2</span>)  │             <span style="color: #00af00; text-decoration-color: #00af00">66</span> │ dropout_3[<span style="color: #00af00; text-decoration-color: #00af00">0</span>][<span style="color: #00af00; text-decoration-color: #00af00">0</span>]        │
+└───────────────────────────┴────────────────────────┴────────────────┴────────────────────────┘
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">28,706</span> (112.13 KB)
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">28,706</span> (112.13 KB)
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve the files from the cloud using Pooch.\n&quot;,</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EZVN0nazQYFMoFkONuM4788BfSsSe3xjB-jSXYW9JibtHw?download=1&#39;</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">)</span>
+
+<span class="c1"># Load and prepare the necessary dataset</span>
+<span class="n">merged_data</span><span class="o">=</span> <span class="n">load_from_pooch</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="c1"># Visualize the I/O variables</span>
+<span class="n">inputs_scaled</span><span class="p">,</span> <span class="n">outputs_scaled</span><span class="p">,</span> <span class="n">scaling_factors</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">(</span><span class="n">merged_data</span><span class="p">)</span>
+<span class="c1"># Prepare the data for training</span>
+<span class="n">X_test_aug</span><span class="p">,</span> <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="o">=</span><span class="n">augment_data_for_training</span><span class="p">(</span><span class="n">inputs_scaled</span><span class="p">,</span><span class="n">outputs_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from &#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EZVN0nazQYFMoFkONuM4788BfSsSe3xjB-jSXYW9JibtHw?download=1&#39; to file &#39;/root/.cache/pooch/475b760532deae46d5b9b51b121267ba-EZVN0nazQYFMoFkONuM4788BfSsSe3xjB-jSXYW9JibtHw&#39;.
+SHA256 hash of downloaded file: 315f8b10512bacfbd2149ded4c5cc357bffb37f6982b2479bb620795a8dcbebf
+Use this value as the &#39;known_hash&#39; argument of &#39;pooch.retrieve&#39; to ensure that the file hasn&#39;t changed if it is downloaded again in the future.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inputs scaled shape: (101, 323, 497, 3)
+Outputs scaled shape: (101, 323, 497, 2)
+</pre></div>
+</div>
+<img alt="../_images/5e7b04f032222de33197dca34658cf6a4e36e37a3442d3b592d426395cd7e171.png" src="../_images/5e7b04f032222de33197dca34658cf6a4e36e37a3442d3b592d426395cd7e171.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (270, 323, 497, 3)
+y_train shape: (270, 323, 497, 2)
+X_test shape: (33, 323, 497, 3)
+y_test shape: (33, 323, 497, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span>
+
+    <span class="c1"># Train the model</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">))</span>
+    <span class="c1"># Save the trained model to a file</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s1">&#39;model_weights.h5&#39;</span><span class="p">)</span>
+
+
+<span class="k">else</span> <span class="p">:</span>
+
+    <span class="n">file_id</span> <span class="o">=</span> <span class="s1">&#39;1rwVaB8dTt175yVxDXp4dninfixsx2R9u&#39;</span>  <span class="c1"># Replace with your file ID</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;model_weights.h5&#39;</span>  <span class="c1"># Name to save the file locally</span>
+    <span class="o">!</span>gdown<span class="w"> </span><span class="nv">$file_id</span><span class="w"> </span>-O<span class="w"> </span><span class="nv">$output_file</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading...
+From: https://drive.google.com/uc?id=1rwVaB8dTt175yVxDXp4dninfixsx2R9u
+To: /content/model_weights.h5
+
+  0% 0.00/142k [00:00&lt;?, ?B/s]
+100% 142k/142k [00:00&lt;00:00, 70.3MB/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualise the performance of the trained model by making predictions</span>
+
+<span class="n">predicted_outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">)</span>
+<span class="c1"># Separate predicted outputs into ubar and vbar components</span>
+<span class="n">pred_ubar</span> <span class="o">=</span> <span class="n">predicted_outputs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># First channel is ubar</span>
+<span class="n">pred_vbar</span> <span class="o">=</span> <span class="n">predicted_outputs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Second channel is vbar</span>
+<span class="c1"># Call the plot function for a specific time index, e.g., 0</span>
+<span class="n">time_idx</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plot_comparison</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">y_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pred_ubar</span><span class="p">,</span> <span class="n">pred_vbar</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">2/2</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">7s</span> 431ms/step
+</pre></div>
+</div>
+<img alt="../_images/a60f00813a3686d8d5fb031de2e05818384be6a8eafe47e671296407b878a516.png" src="../_images/a60f00813a3686d8d5fb031de2e05818384be6a8eafe47e671296407b878a516.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot the Learning curve</span>
+
+<span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Plot training loss</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training Loss&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot validation loss</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Loss&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add labels and legend</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Learning Curve (Loss vs. Epochs)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Lr.png&quot;</span><span class="p">)</span>
+    <span class="c1"># Show plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="implementing-the-hybrid-model">
+<h3><span class="section-number">10.5.2.2. </span>Implementing the Hybrid Model<a class="headerlink" href="#implementing-the-hybrid-model" title="Link to this heading">#</a></h3>
+<p>For the hybrid model, we will implement the mass conservation equation using a numerical scheme. The main difference from the first approach is how we calculate <strong>u</strong>(x, y). Instead of deriving it directly, we use the emulator trained earlier and plug it into the mass conservation equation to compute the flux.</p>
+<p>To perform each iteration of the numerical scheme, we will need two helper functions: <code class="docutils literal notranslate"><span class="pre">compute_divflux()</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_gradient_tf()</span></code>.</p>
+<p>Remember that the velocity field <strong>u</strong> primarily depends on the slope and thickness of the glacier.</p>
+<section id="helper-functions-for-the-hybrid-model">
+<h4><span class="section-number">10.5.2.2.1. </span>Helper functions for the hybrid model<a class="headerlink" href="#helper-functions-for-the-hybrid-model" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Helper functions</span>
+
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">compute_divflux</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Upwind computation of the divergence of the flux: d(u h)/dx + d(v h)/dy</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - u: x-component of velocity (2D tensor).</span>
+<span class="sd">    - v: y-component of velocity (2D tensor).</span>
+<span class="sd">    - h: ice thickness (2D tensor).</span>
+<span class="sd">    - dx: grid spacing in the x-direction (float).</span>
+<span class="sd">    - dy: grid spacing in the y-direction (float).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - divflux: divergence of flux (2D tensor).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Compute u and v on the staggered grid</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">u</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">u</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]),</span> <span class="n">u</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]],</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># shape (ny, nx+1)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]),</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]],</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># shape (ny+1, nx)</span>
+
+    <span class="c1"># Extend h with constant value at the domain boundaries</span>
+    <span class="n">Hx</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="s2">&quot;CONSTANT&quot;</span><span class="p">)</span>  <span class="c1"># shape (ny, nx+2)</span>
+    <span class="n">Hy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="s2">&quot;CONSTANT&quot;</span><span class="p">)</span>  <span class="c1"># shape (ny+2, nx)</span>
+
+    <span class="c1"># Compute fluxes by selecting the upwind quantities</span>
+    <span class="n">Qx</span> <span class="o">=</span> <span class="n">u</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">u</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Hx</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Hx</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>  <span class="c1"># shape (ny, nx+1)</span>
+    <span class="n">Qy</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Hy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Hy</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:])</span>  <span class="c1"># shape (ny+1, nx)</span>
+
+    <span class="c1"># Compute the divergence, final shape is (ny, nx)</span>
+    <span class="n">divflux</span> <span class="o">=</span> <span class="p">(</span><span class="n">Qx</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">Qx</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span> <span class="o">+</span> <span class="p">(</span><span class="n">Qy</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">Qy</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">/</span> <span class="n">dy</span>
+    <span class="k">return</span> <span class="n">divflux</span>
+
+
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">compute_gradient_tf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute spatial 2D gradient of a given field.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - s: surface elevation (2D tensor).</span>
+<span class="sd">    - dx: grid spacing in the x-direction (float).</span>
+<span class="sd">    - dy: grid spacing in the y-direction (float).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - diffx: gradient in the x-direction (2D tensor).</span>
+<span class="sd">    - diffy: gradient in the y-direction (2D tensor).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">EX</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">diffx</span> <span class="o">=</span> <span class="p">(</span><span class="n">EX</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">EX</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">dx</span>
+
+    <span class="n">EY</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:],</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:],</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]],</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">diffy</span> <span class="o">=</span> <span class="p">(</span><span class="n">EY</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">EY</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span> <span class="o">/</span> <span class="n">dy</span>
+
+    <span class="k">return</span> <span class="n">diffx</span><span class="p">,</span> <span class="n">diffy</span>
+
+
+<span class="k">def</span> <span class="nf">apply_boundary_condition</span><span class="p">(</span><span class="n">H_ice</span><span class="p">,</span> <span class="n">boundary_width</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply boundary condition to the ice thickness field `H_ice`.</span>
+<span class="sd">    The ice thickness will linearly decrease to zero starting from `boundary_width` pixels away from the boundary.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - H_ice: 2D numpy array representing ice thickness.</span>
+<span class="sd">    - boundary_width: Number of pixels from the boundary where H_ice starts to decrease.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - Modified H_ice with boundary condition applied.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">H_ice</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># Get the dimensions of the ice thickness field</span>
+
+    <span class="c1"># Create linear ramps</span>
+    <span class="n">ramp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">boundary_width</span><span class="p">)</span>  <span class="c1"># Ramp that linearly decreases from 1 to 0</span>
+
+    <span class="c1"># Apply boundary condition to the left boundary</span>
+    <span class="n">H_ice</span><span class="p">[:,</span> <span class="p">:</span><span class="n">boundary_width</span><span class="p">]</span> <span class="o">*=</span> <span class="n">ramp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Decrease from boundary to 5 pixels inwards</span>
+
+    <span class="c1"># Apply boundary condition to the right boundary</span>
+    <span class="n">H_ice</span><span class="p">[:,</span> <span class="o">-</span><span class="n">boundary_width</span><span class="p">:]</span> <span class="o">*=</span> <span class="n">ramp</span>  <span class="c1"># Decrease from 5 pixels inwards to the boundary</span>
+
+    <span class="c1"># Apply boundary condition to the top boundary</span>
+    <span class="n">H_ice</span><span class="p">[:</span><span class="n">boundary_width</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*=</span> <span class="n">ramp</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>  <span class="c1"># Decrease vertically from top boundary</span>
+
+    <span class="c1"># Apply boundary condition to the bottom boundary</span>
+    <span class="n">H_ice</span><span class="p">[</span><span class="o">-</span><span class="n">boundary_width</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">*=</span> <span class="n">ramp</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>  <span class="c1"># Decrease vertically to bottom boundary</span>
+
+    <span class="k">return</span> <span class="n">H_ice</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-the-hybrid-model">
+<h4><span class="section-number">10.5.2.2.2. </span>Run the hybrid model<a class="headerlink" href="#run-the-hybrid-model" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Physical parameters</span>
+<span class="n">Lx</span> <span class="o">=</span> <span class="mi">49700</span>    <span class="c1"># Domain length in x (m)</span>
+<span class="n">Ly</span> <span class="o">=</span> <span class="mi">32300</span>    <span class="c1"># Domain length in y (m)</span>
+<span class="n">ttot</span> <span class="o">=</span> <span class="mi">700</span>   <span class="c1"># Time limit (yr)</span>
+<span class="n">grad_b</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1"># Mass balance gradient (no unit)</span>
+<span class="n">b_max</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Maximum precip (m/yr)</span>
+<span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># Elevation of equilibrium line altitude (m)</span>
+
+<span class="c1"># Initialization &amp; load data</span>
+
+<span class="n">nout</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Frequency of plotting</span>
+<span class="n">dtmax</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># maximum time step</span>
+<span class="n">cfl</span> <span class="o">=</span> <span class="mf">0.20</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Cell size in y</span>
+<span class="n">nx</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">Lx</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">ny</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">Ly</span><span class="o">/</span><span class="n">dy</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  <span class="c1"># x-coordinates</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>  <span class="c1"># y-coordinates</span>
+
+<span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>  <span class="c1"># Initial ice thickness</span>
+<span class="n">Z_surf</span> <span class="o">=</span> <span class="n">Z_topo</span> <span class="o">+</span> <span class="n">H_ice</span>  <span class="c1"># Initial ice surface</span>
+<span class="c1"># Compute gradients of surface elevation (slopes)</span>
+<span class="n">slopsurfx</span><span class="p">,</span> <span class="n">slopsurfy</span> <span class="o">=</span> <span class="n">compute_gradient_tf</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># Initial time as float32</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">dtmax</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># Cast dtmax to float32e</span>
+<span class="n">it</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensure all arrays are float32</span>
+<span class="n">H_ice</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">H_ice</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">slopsurfx</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">slopsurfx</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">slopsurfy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">slopsurfy</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">Z_surf</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">Z_topo</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">Z_topo</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="c1">#Fields need to be scaled</span>
+
+<span class="c1"># Loop</span>
+<span class="k">while</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="n">ttot</span><span class="p">:</span>
+    <span class="c1"># Update time</span>
+    <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">it</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># Step 1: Scale the inputs with stored scaling factors</span>
+    <span class="n">H_ice_scaled</span> <span class="o">=</span> <span class="n">H_ice</span> <span class="o">/</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;thk&quot;</span><span class="p">]</span>
+    <span class="n">slopsurfx_scaled</span> <span class="o">=</span> <span class="n">slopsurfx</span> <span class="o">/</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;slopsurfx&quot;</span><span class="p">]</span>
+    <span class="n">slopsurfy_scaled</span> <span class="o">=</span> <span class="n">slopsurfy</span> <span class="o">/</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;slopsurfy&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Combine scaled inputs</span>
+    <span class="n">input_data_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">H_ice_scaled</span><span class="p">,</span> <span class="n">slopsurfx_scaled</span><span class="p">,</span> <span class="n">slopsurfy_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">input_data_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">input_data_scaled</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Add batch dimension</span>
+    <span class="c1"># Step 2: Use the trained model to predict ubar (x-velocity) and vbar (y-velocity)</span>
+
+    <span class="n">ubar_vbar_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data_scaled</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ubar</span> <span class="o">=</span> <span class="n">ubar_vbar_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;ubar&quot;</span><span class="p">]</span> <span class="c1"># x-component of velocity (ubar)</span>
+    <span class="n">vbar</span> <span class="o">=</span> <span class="n">ubar_vbar_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;vbar&quot;</span><span class="p">]</span> <span class="c1"># y-component of velocity (vbar)</span>
+
+    <span class="c1"># Step 3: Compute maximum velocity for CFL condition</span>
+    <span class="n">vel_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ubar</span><span class="p">)),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vbar</span><span class="p">)),</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="c1"># Step 4: Compute time step (CFL condition)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">cfl</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">vel_max</span><span class="p">,</span> <span class="n">dtmax</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="c1"># Step 5: Update rule divergence of the flux: Compute the change in thickness (dH/dt)</span>
+    <span class="c1"># Hint: Use Helper function</span>
+    <span class="n">dHdt</span> <span class="o">=</span> <span class="o">-</span> <span class="n">______</span>
+
+    <span class="c1"># Update ice thickness (ensure no negative values)</span>
+    <span class="n">H_ice</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dHdt</span>
+
+    <span class="c1"># Define the SMB (Surface Mass Balance)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">grad_b</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_surf</span> <span class="o">-</span> <span class="n">Z_ELA</span><span class="p">),</span> <span class="n">b_max</span><span class="p">)</span>
+
+    <span class="c1"># Update rule (mass balance)</span>
+    <span class="n">H_ice</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">b</span>
+
+    <span class="c1"># Update rule (positive thickness)</span>
+    <span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">H_ice</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Apply the boundary condition before the next iteration</span>
+    <span class="n">H_ice</span> <span class="o">=</span> <span class="n">apply_boundary_condition</span><span class="p">(</span><span class="n">H_ice</span><span class="p">)</span>
+
+    <span class="c1"># Update surface topography</span>
+    <span class="n">Z_surf</span> <span class="o">=</span> <span class="n">Z_topo</span> <span class="o">+</span> <span class="n">H_ice</span>
+
+    <span class="c1"># Compute gradients of surface elevation (slopes)</span>
+    <span class="n">slopsurfx</span><span class="p">,</span> <span class="n">slopsurfy</span> <span class="o">=</span> <span class="n">compute_gradient_tf</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+    <span class="c1"># Update ELA after 500 years</span>
+    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">2700</span>
+
+   <span class="c1"># Display</span>
+    <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">nout</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Clear the previous output in the notebook</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+        <span class="c1"># First subplot: Ice surface</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="o">/</span><span class="mi">1000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ice Surface at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; y&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Second subplot: Ice thickness</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">H_ice</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">H_ice</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="o">/</span><span class="mi">1000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ice Thickness (m)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ice Thickness at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; y&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Show the plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03f8e13353de4b06e7a654f5a35f06f0043871fb36e5df86b4b051d8db6ed711.png" src="../_images/03f8e13353de4b06e7a654f5a35f06f0043871fb36e5df86b4b051d8db6ed711.png" />
+</div>
+</div>
+<p>⚡ <em>Note how much faster the hybrid model is?</em></p>
+<p><strong>Q: What are some disadvantages of hybrid models?</strong></p>
+<ul class="simple">
+<li><p><i>Boundary conditions are difficult to implement.</i></p></li>
+<li><p><i>The model is only as good as the data it is trained on.</i></p></li>
+</ul>
+<p><strong>Q: What are some other fields where we can use Hybrid Models?</strong></p>
+<ul class="simple">
+<li><p><i> 1.</i></p></li>
+<li><p><i> 2.</i></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebook_dl"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HybridModeling_summary.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Hybrid Modeling and Knowledge-Guided Learning</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">10.5.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">10.5.1.1. Introduction to Glacier Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">10.5.1.2. Numerical Solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-base">10.5.1.2.1. Boundary Conditions with No-Slip Condition at the Base</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">10.5.2. Introduction to Hybrid Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">10.5.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">10.5.2.1.1. Overview of the Machine Learning Approach</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-you-do-not-need-to-know">10.5.2.1.2. Helper Functions You Do Not Need to Know</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">10.5.2.1.3. Functions to Prepare the Data for the Model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-augmentation">10.5.2.1.4. Data augmentation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">10.5.2.1.5. Start working on the CNN model</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-the-hybrid-model">10.5.2.2. Implementing the Hybrid Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-for-the-hybrid-model">10.5.2.2.1. Helper functions for the hybrid model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">10.5.2.2.2. Run the hybrid model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
