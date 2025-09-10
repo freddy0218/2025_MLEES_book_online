@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7.6. (Exercises) Graph Neural Networks with PyTorch &#8212; My sample book</title>
+    <title>7.6. (Exercises) Graph Neural Networks with PyTorch &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Machine Learning for Earth and Environmental Sciences - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Machine Learning for Earth and Environmental Sciences - Home"/>`);</script>
   
   
 </a></div>
@@ -565,77 +565,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scipy in /Users/itam/miniconda3/lib/python3.12/site-packages (1.16.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading scipy-1.16.1-cp312-cp312-macosx_10_14_x86_64.whl.metadata (61 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/62.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">61.4/62.0 kB</span> <span class=" -Color -Color-Red">6.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">62.0/62.0 kB</span> <span class=" -Color -Color-Red">1.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting networkx
-  Downloading networkx-3.5-py3-none-any.whl.metadata (6.3 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx in /Users/itam/miniconda3/lib/python3.12/site-packages (3.5)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&lt;2.6,&gt;=1.25.2 in /Users/itam/miniconda3/lib/python3.12/site-packages (from scipy) (2.3.1)
-Downloading scipy-1.16.1-cp312-cp312-macosx_10_14_x86_64.whl (36.6 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/36.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.6/36.6 MB</span> <span class=" -Color -Color-Red">42.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.1/36.6 MB</span> <span class=" -Color -Color-Red">65.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.9/36.6 MB</span> <span class=" -Color -Color-Red">53.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.9/36.6 MB</span> <span class=" -Color -Color-Red">45.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.4/36.6 MB</span> <span class=" -Color -Color-Red">45.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.2/36.6 MB</span> <span class=" -Color -Color-Red">66.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">16.1/36.6 MB</span> <span class=" -Color -Color-Red">80.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">19.1/36.6 MB</span> <span class=" -Color -Color-Red">97.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">22.0/36.6 MB</span> <span class=" -Color -Color-Red">81.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━ <span class=" -Color -Color-Green">24.9/36.6 MB</span> <span class=" -Color -Color-Red">81.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">27.7/36.6 MB</span> <span class=" -Color -Color-Red">80.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━ <span class=" -Color -Color-Green">30.7/36.6 MB</span> <span class=" -Color -Color-Red">82.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">33.5/36.6 MB</span> <span class=" -Color -Color-Red">82.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.2/36.6 MB</span> <span class=" -Color -Color-Red">77.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.6/36.6 MB</span> <span class=" -Color -Color-Red">80.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">36.6/36.6 MB</span> <span class=" -Color -Color-Red">57.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading networkx-3.5-py3-none-any.whl (2.0 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">2.0/2.0 MB</span> <span class=" -Color -Color-Red">84.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/2.0 MB</span> <span class=" -Color -Color-Red">35.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: scipy, networkx
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed networkx-3.5 scipy-1.16.1
 </pre></div>
 </div>
 </div>
@@ -797,7 +733,7 @@ G has 3 edges
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/592cb6bd966ee62e86858fff011c16e924cfc7c1166e7f6eaf60d9bdb1abbc5e.png" src="../_images/592cb6bd966ee62e86858fff011c16e924cfc7c1166e7f6eaf60d9bdb1abbc5e.png" />
+<img alt="../_images/51e550dd982880b2a9a53f5a9c4ad11393944a5e9ab838f9340b29f2dc92b1b8.png" src="../_images/51e550dd982880b2a9a53f5a9c4ad11393944a5e9ab838f9340b29f2dc92b1b8.png" />
 </div>
 </div>
 </section>
@@ -849,7 +785,7 @@ Node 1 has neighbor 2
  3: 0.17857162031103999}
 </pre></div>
 </div>
-<img alt="../_images/11143410522ff291780cb9dc96854dbc6f9c7899dd8c345128ee1f11d7f18208.png" src="../_images/11143410522ff291780cb9dc96854dbc6f9c7899dd8c345128ee1f11d7f18208.png" />
+<img alt="../_images/e35f6774ef8c4d5142ea094da10f95063fa19cdbb84ddc829f7836e8f0001aaa.png" src="../_images/e35f6774ef8c4d5142ea094da10f95063fa19cdbb84ddc829f7836e8f0001aaa.png" />
 </div>
 </div>
 </section>
@@ -873,7 +809,7 @@ Node 1 has neighbor 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ddf55663c4c212f430932ce82434cc46e9fd7c82859a7b81985c60e50357f9bb.png" src="../_images/ddf55663c4c212f430932ce82434cc46e9fd7c82859a7b81985c60e50357f9bb.png" />
+<img alt="../_images/e28079c6b77ed984e6a49dec3526b54e9029000a3a1c1f6f316a1d3923742ebb.png" src="../_images/e28079c6b77ed984e6a49dec3526b54e9029000a3a1c1f6f316a1d3923742ebb.png" />
 </div>
 </div>
 </section>
@@ -2818,7 +2754,7 @@ Here, this is implemented by filtering the output of the classifier <code class=
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi, Ayoub Fatihi
 </p>
 
   </div>
