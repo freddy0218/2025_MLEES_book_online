@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8.7. 8.3. Weather prediction" href="LAM_Graphcast.html" />
-    <link rel="prev" title="8. 8.1. Introduction to Graph Neural Networks" href="GNN_Knowledge.html" />
+    <link rel="prev" title="8. Introduction to Graph Neural Networks" href="GNN_Knowledge.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to Hands-on Machine Learning for Earth and Environmental Sciences
                 </a>
             </li>
         </ul>
@@ -574,10 +574,70 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scipy in /Users/itam/miniconda3/lib/python3.12/site-packages (1.16.1)
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading scipy-1.16.2-cp312-cp312-macosx_10_14_x86_64.whl.metadata (62 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/62.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">62.0/62.0 kB</span> <span class=" -Color -Color-Red">1.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx in /Users/itam/miniconda3/lib/python3.12/site-packages (3.5)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&lt;2.6,&gt;=1.25.2 in /Users/itam/miniconda3/lib/python3.12/site-packages (from scipy) (2.3.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading scipy-1.16.2-cp312-cp312-macosx_10_14_x86_64.whl (36.6 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/36.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/36.6 MB</span> <span class=" -Color -Color-Red">41.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.5/36.6 MB</span> <span class=" -Color -Color-Red">60.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.0/36.6 MB</span> <span class=" -Color -Color-Red">70.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.1/36.6 MB</span> <span class=" -Color -Color-Red">82.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.7/36.6 MB</span> <span class=" -Color -Color-Red">87.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">17.7/36.6 MB</span> <span class=" -Color -Color-Red">85.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.7/36.6 MB</span> <span class=" -Color -Color-Red">87.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━ <span class=" -Color -Color-Green">24.3/36.6 MB</span> <span class=" -Color -Color-Red">88.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━ <span class=" -Color -Color-Green">27.2/36.6 MB</span> <span class=" -Color -Color-Red">89.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━ <span class=" -Color -Color-Green">30.3/36.6 MB</span> <span class=" -Color -Color-Red">88.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">33.5/36.6 MB</span> <span class=" -Color -Color-Red">86.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.4/36.6 MB</span> <span class=" -Color -Color-Red">86.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.6/36.6 MB</span> <span class=" -Color -Color-Red">85.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">36.6/36.6 MB</span> <span class=" -Color -Color-Red">58.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: scipy
+  Attempting uninstall: scipy
+    Found existing installation: scipy 1.16.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling scipy-1.16.1:
+      Successfully uninstalled scipy-1.16.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed scipy-1.16.2
 </pre></div>
 </div>
 </div>
@@ -739,7 +799,7 @@ G has 3 edges
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/78df0101d7f702f9510ec5b79a48aa0e95a9b680bcbae2a9f8dd907ed70f16eb.png" src="../_images/78df0101d7f702f9510ec5b79a48aa0e95a9b680bcbae2a9f8dd907ed70f16eb.png" />
+<img alt="../_images/d928fff1bc47fb11bab04fe1324acf045db832daf479574a62419653210017a3.png" src="../_images/d928fff1bc47fb11bab04fe1324acf045db832daf479574a62419653210017a3.png" />
 </div>
 </div>
 </section>
@@ -791,7 +851,7 @@ Node 1 has neighbor 2
  3: 0.17857162031103999}
 </pre></div>
 </div>
-<img alt="../_images/9bb081876a9caf48f3057fbe65226d5300221f1eb47a6644e2f0393bd5611629.png" src="../_images/9bb081876a9caf48f3057fbe65226d5300221f1eb47a6644e2f0393bd5611629.png" />
+<img alt="../_images/ecd39066e49358a9787f0694d175e0c003bba2bf14c1e032f992f82558529975.png" src="../_images/ecd39066e49358a9787f0694d175e0c003bba2bf14c1e032f992f82558529975.png" />
 </div>
 </div>
 </section>
@@ -815,7 +875,7 @@ Node 1 has neighbor 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/11278ace2fec487d75fc65fa7a3b31e5896dcbcdab37424c8d6f69361e32e03a.png" src="../_images/11278ace2fec487d75fc65fa7a3b31e5896dcbcdab37424c8d6f69361e32e03a.png" />
+<img alt="../_images/839201eadce80533c5ea4b82813280202bd874138bb53c11fe5c7247d805aaa9.png" src="../_images/839201eadce80533c5ea4b82813280202bd874138bb53c11fe5c7247d805aaa9.png" />
 </div>
 </div>
 </section>
@@ -2662,7 +2722,7 @@ Here, this is implemented by filtering the output of the classifier <code class=
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>8.1. Introduction to Graph Neural Networks</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Introduction to Graph Neural Networks</p>
       </div>
     </a>
     <a class="right-next"
