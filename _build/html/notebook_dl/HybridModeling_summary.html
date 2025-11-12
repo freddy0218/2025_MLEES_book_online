@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>11. Hybrid Modeling and Knowledge-Guided Learning &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>11.1. Introduction to Hybrid Modeling &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -57,13 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebook_dl/HybridModeling_summary';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11.5. (Exercise) Introduction to Hybrid Models: Combining Physics-Based and Machine Learning Models" href="10_Hybird_Models.html" />
-    <link rel="prev" title="10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models" href="Week_9_Generative_modeling.html" />
+    <link rel="next" title="11.2. (Exercise) Introduction to Hybrid Models: Combining Physics-Based and Machine Learning Models" href="10_Hybird_Models.html" />
+    <link rel="prev" title="11. Hybrid Modeling and Knowledge-Guided Learning" href="Week_10_Hybrid_modeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -254,9 +252,10 @@
 <li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="GNN_Knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Graph_neural_networks.html">8.6. (Exercises) Graph neural networks with PyTorch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LAM_Graphcast.html">8.7. (Exercise) Neural Weather Prediction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_8_Graph_NN.html">8. Graph Neural Networks and Interconnected Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="GNN_Knowledge.html">8.1. What are Graph Neural Networks (GNNs)?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Graph_neural_networks.html">8.2. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LAM_Graphcast.html">8.3. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </details></li>
 </ul>
@@ -272,8 +271,9 @@
 <li class="toctree-l2"><a class="reference internal" href="Week_9_Generative_modeling.html">10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">11. Hybrid Modeling and Knowledge-Guided Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_10_Hybrid_modeling.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.1. (Exercise) Introduction to Hybrid Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Hybird_Models.html">11.2. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </details></li>
 </ul>
@@ -461,7 +461,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Hybrid Modeling and Knowledge-Guided Learning</h1>
+    <h1>Introduction to Hybrid Modeling</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -471,15 +471,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1. Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.2. Introduction to Hybrid Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-kgml-models">11.3. Why Use KGML Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-data-only-black-box-ml-models">11.3.1. 1. Limitations of Data-Only (Black-Box) ML Models:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-knowledge-only-models">11.3.2. 2. Challenges with Knowledge-Only Models:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-kgml-models">11.3.3. 3. The Role of KGML Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-kgml-models">11.1.1. Why Use KGML Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-data-only-black-box-ml-models">11.1.1.1. 1. Limitations of Data-Only (Black-Box) ML Models:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-knowledge-only-models">11.1.1.2. 2. Challenges with Knowledge-Only Models:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-kgml-models">11.1.1.3. 3. The Role of KGML Models</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-kgml-models">11.4. Applications of KGML Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-kgml-models">11.1.2. Applications of KGML Models</a></li>
 </ul>
             </nav>
         </div>
@@ -492,32 +490,19 @@ document.write(`
                 <article class="bd-article">
                   
   <p><a href="https://colab.research.google.com/github/freddy0218/2025_MLEES_book/blob/main/notebook_dl/HybridModeling_summary.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="hybrid-modeling-and-knowledge-guided-learning">
-<h1><span class="section-number">11. </span>Hybrid Modeling and Knowledge-Guided Learning<a class="headerlink" href="#hybrid-modeling-and-knowledge-guided-learning" title="Link to this heading">#</a></h1>
-<section id="learning-objectives">
-<h2><span class="section-number">11.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<p>Welcome to the Hybrid Modeling chapter! By the end of this section, you will:</p>
-<ol class="arabic simple">
-<li><p><strong>Understand glacier modeling</strong> through physics-based approaches.</p></li>
-<li><p><strong>Learn about Knowledge-Guided Machine Learning (KGML) models</strong> and how they seamlessly combine physics-based and ML approaches.</p></li>
-<li><p><strong>Identify the strengths and limitations</strong> of KGML models.</p></li>
-<li><p><strong>Explore various applications</strong> of KGML models in scientific and engineering domains.</p></li>
-</ol>
-</section>
-<section id="introduction-to-hybrid-modeling">
-<h2><span class="section-number">11.2. </span>Introduction to Hybrid Modeling<a class="headerlink" href="#introduction-to-hybrid-modeling" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-hybrid-modeling">
+<h1><span class="section-number">11.1. </span>Introduction to Hybrid Modeling<a class="headerlink" href="#introduction-to-hybrid-modeling" title="Link to this heading">#</a></h1>
 <p>Hybrid modeling combines the strengths of data-driven Machine Learning (ML) techniques with traditional scientific or physics-based models. This paradigm aims to overcome the limitations of both “black-box” ML models and purely theoretical approaches. ML-only models (data-only) are highly effective in commercial applications but often fail in scientific domains due to their inability to generalize well with limited data or adhere to established scientific principles. Conversely, traditional scientific models, while grounded in theory, may be limited by computational inefficiencies or incomplete representations of complex phenomena.</p>
 <center>
 <img src="https://arxiv.org/html/2403.15989v2/x2.png" width=80%></img>
 <p><br> <i> Figure (a) provides a framework to contextualize hybrid modeling within the broader concept of KGML. The horizontal axis illustrates the use of data, while the vertical axis represents reliance on scientific knowledge. </i></p>
 </center>
 <p>Traditional ML approaches emphasize data (lower-right quadrant), whereas scientific models rely solely on domain knowledge (upper-left quadrant). Hybrid modeling—central to KGML—occupies the upper-right quadrant, leveraging both data and theory to create models that are both scientifically consistent and capable of generalizing from data.</p>
-</section>
 <section id="why-use-kgml-models">
-<h2><span class="section-number">11.3. </span>Why Use KGML Models<a class="headerlink" href="#why-use-kgml-models" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.1.1. </span>Why Use KGML Models<a class="headerlink" href="#why-use-kgml-models" title="Link to this heading">#</a></h2>
 <p>Scientific problems often demand models that balance predictive power with interpretability and consistency with established knowledge. The need for hybrid models arises from the shortcomings of relying exclusively on data-driven or theory-based methods:</p>
 <section id="limitations-of-data-only-black-box-ml-models">
-<h3><span class="section-number">11.3.1. </span>1. Limitations of Data-Only (Black-Box) ML Models:<a class="headerlink" href="#limitations-of-data-only-black-box-ml-models" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1.1. </span>1. Limitations of Data-Only (Black-Box) ML Models:<a class="headerlink" href="#limitations-of-data-only-black-box-ml-models" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Poor Generalization:</strong> ML models trained solely on data are prone to overfitting, especially in scientific domains with sparse or incomplete datasets.</p></li>
 <li><p><strong>Lack of Scientific Consistency:</strong> These models often produce solutions that violate known scientific laws, leading to scientifically meaningless predictions.</p></li>
@@ -525,14 +510,14 @@ document.write(`
 </ul>
 </section>
 <section id="challenges-with-knowledge-only-models">
-<h3><span class="section-number">11.3.2. </span>2. Challenges with Knowledge-Only Models:<a class="headerlink" href="#challenges-with-knowledge-only-models" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1.2. </span>2. Challenges with Knowledge-Only Models:<a class="headerlink" href="#challenges-with-knowledge-only-models" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Incomplete Representations:</strong> Scientific models often rely on simplifications and assumptions, which may overlook certain dynamics of the system.</p></li>
 <li><p><strong>Computational Expense:</strong> High-fidelity physics-based models are computationally intensive, making them impractical for large-scale or real-time applications.</p></li>
 </ul>
 </section>
 <section id="the-role-of-kgml-models">
-<h3><span class="section-number">11.3.3. </span>3. The Role of KGML Models<a class="headerlink" href="#the-role-of-kgml-models" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1.3. </span>3. The Role of KGML Models<a class="headerlink" href="#the-role-of-kgml-models" title="Link to this heading">#</a></h3>
 <p>KGML models address these challenges by combining the strengths of data-driven learning and theoretical insights. They:</p>
 <ul class="simple">
 <li><p>Improve <strong>predictive accuracy</strong> by incorporating physical laws into the learning process.</p></li>
@@ -542,7 +527,7 @@ document.write(`
 </section>
 </section>
 <section id="applications-of-kgml-models">
-<h2><span class="section-number">11.4. </span>Applications of KGML Models<a class="headerlink" href="#applications-of-kgml-models" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.1.2. </span>Applications of KGML Models<a class="headerlink" href="#applications-of-kgml-models" title="Link to this heading">#</a></h2>
 <p>Hybrid models have found applications across numerous fields, including:</p>
 <ul class="simple">
 <li><p><strong>Climate science</strong>: For modeling complex processes like glacier flow, ocean currents, or atmospheric dynamics.</p></li>
@@ -551,8 +536,6 @@ document.write(`
 </ul>
 <p>By blending the predictive power of ML with the robustness of physics-based modeling, KGML models represent a promising approach for advancing our understanding of complex systems.</p>
 </section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -586,12 +569,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Week_9_Generative_modeling.html"
+       href="Week_10_Hybrid_modeling.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10.2. </span>(Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Hybrid Modeling and Knowledge-Guided Learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -599,7 +582,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11.5. </span>(Exercise) Introduction to Hybrid Models: Combining Physics-Based and Machine Learning Models</p>
+        <p class="prev-next-title"><span class="section-number">11.2. </span>(Exercise) Introduction to Hybrid Models: Combining Physics-Based and Machine Learning Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -619,15 +602,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1. Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.2. Introduction to Hybrid Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-kgml-models">11.3. Why Use KGML Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-data-only-black-box-ml-models">11.3.1. 1. Limitations of Data-Only (Black-Box) ML Models:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-knowledge-only-models">11.3.2. 2. Challenges with Knowledge-Only Models:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-kgml-models">11.3.3. 3. The Role of KGML Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-kgml-models">11.1.1. Why Use KGML Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-data-only-black-box-ml-models">11.1.1.1. 1. Limitations of Data-Only (Black-Box) ML Models:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-with-knowledge-only-models">11.1.1.2. 2. Challenges with Knowledge-Only Models:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-kgml-models">11.1.1.3. 3. The Role of KGML Models</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-kgml-models">11.4. Applications of KGML Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-kgml-models">11.1.2. Applications of KGML Models</a></li>
 </ul>
   </nav></div>
 
