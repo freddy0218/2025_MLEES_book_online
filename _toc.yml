@@ -145,8 +145,10 @@ parts:
           title: (Exercise) Introduction to Uncertainty Quantification and Generative Modeling
         - file: notebook_dl/Week_9_Generative_modeling.ipynb
           title: (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models
-    - file: notebook_dl/HybridModeling_summary.ipynb
+    - file: notebook_dl/Week_10_Hybrid_modeling.ipynb
       title: Hybrid Modeling and Knowledge-Guided Learning
       sections:
+        - file: notebook_dl/HybridModeling_summary.ipynb
+          title: (Exercise) Introduction to Hybrid Modeling
         - file: notebook_dl/10_Hybird_Models.ipynb
           title: (Exercise) Introduction to Hybrid models
