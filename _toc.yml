@@ -119,3 +119,34 @@ parts:
           title: (Exercise) Composing Music
         - file: notebook_dl/S6_2_LSTM.ipynb
           title: (Exercise) Hydrological Modeling
+    - file: notebook_dl/Week_8_Graph_NN.ipynb
+      title: Graph Neural Networks and Interconnected Systems
+      sections:
+        - file: notebook_dl/GNN_Knowledge.ipynb
+          title: What are Graph Neural Networks (GNNs)?
+        - file: notebook_dl/Graph_neural_networks.ipynb
+          title: (Exercises) Graph neural networks with PyTorch
+        - file: notebook_dl/LAM_Graphcast.ipynb
+          title: (Exercise) Neural Weather Prediction
+- caption: (Part IV) Towards Trustworthy AI
+  numbered: True
+  chapters:
+    - file: notebook_dl/W8_XAI.ipynb
+      title: Explainable Artifical Intelligence and Understanding Predictions
+      sections:
+        - file: notebook_dl/S8_XAIsummary.ipynb
+          title: Why do we need machine learning model interpretability?
+        - file: notebook_dl/Chapter8_Ex1.ipynb
+          title: (Exercise) XAI on Simple Datasets
+    - file: notebook_dl/ch9generative_uncertainty.ipynb
+      title: Generative Modeling and Uncertainty Quantification
+      sections:
+        - file: notebook_dl/09_GenerativeAI.ipynb
+          title: (Exercise) Introduction to Uncertainty Quantification and Generative Modeling
+        - file: notebook_dl/Week_9_Generative_modeling.ipynb
+          title: (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models
+    - file: notebook_dl/HybridModeling_summary.ipynb
+      title: Hybrid Modeling and Knowledge-Guided Learning
+      sections:
+        - file: notebook_dl/10_Hybird_Models.ipynb
+          title: (Exercise) Introduction to Hybrid models
